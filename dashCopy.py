@@ -9,6 +9,8 @@ import altair as alt
 df = pd.read_csv('ads_full.csv', sep=';')
 
 ############## DASH ##########################
+st.set_page_config(page_title="DashCopy",layout="wide",page_icon="favicon.ico")
+
 st.write("""
 # Dash Copy
 """)
@@ -236,3 +238,4 @@ scatter = alt.Chart(df_graph).mark_point().encode(
 ).interactive()
 
 st.altair_chart(scatter, use_container_width=False)
+
