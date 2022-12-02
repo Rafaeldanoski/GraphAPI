@@ -1,0 +1,111 @@
+ADSET,TEMPERATURA
+[ENGAJ] - Interesses em programação,FRIO
+[ENGAJ] - Semelhante 1% - Lista | Todos os alunos,FRIO
+[VV] [25%] - Interesses em Programação,FRIO
+[VV] [25%] - Semelhante 1% - Pixel - Purchase | Todos os Produtos,FRIO
+[VV] [75%] - Interesses em Programação,FRIO
+[VV] [75%] - Semelhante 1% - Pixel - Purchase | Todos os Produtos,FRIO
+[VV] Interesses em Programação,FRIO
+[VV] Semelhante 1% - Pixel - Purchase | Todos os Produtos,FRIO
+00 -  obrigado 30D | Lista Leads | PV 14D | Env. 14D [STORY],QUENTE
+00 - Captacao 14D | Lista Leads | Eng 7D [AUTO],QUENTE
+00 - Captacao14D | Lista Leads | Eng 7D [STORY],QUENTE
+00 - obrigado 30D | Lista Leads  [AUTO],QUENTE
+00 - publico quente 180D,QUENTE
+00 - publico quente 365D,QUENTE
+01 - Cadastrados pelo MyBudget,QUENTE
+01 - Checkout 30D + Envolvimento FB/IG - 3D  [AUTO],QUENTE
+01 - Engajamento FB e IG 60D,QUENTE
+01 - PageView | Trilha Dash | 180D,QUENTE
+01 - PageView | Trilha Machine Larning | 180D,QUENTE
+01 - PageView 180D [AUTO],MORNO
+01 - PageView 180D [STORY],MORNO
+01 - Viu captura 180D + Viu Asimov 30D,QUENTE
+02 - Cadastrados pelo MyBudget,QUENTE
+02 - Engajamento FB e IG 30D,QUENTE
+02 - Engajamento FB e IG 60D,QUENTE
+02 - Engajamentos 30D,QUENTE
+02 - Engajamentos 60D [AUTO],QUENTE
+02 - Engajamentos 60D [STORY],QUENTE
+02 - Interesses em Programação,FRIO
+02 - Semelhante a compradores 3%,FRIO
+02 - Semelhantes a compradores 3%,FRIO
+02 - Viu Pág. Vendas 30D + Envolvimento FB/IG - 14D  [AUTO],QUENTE
+02 - VV - 50% | Campanha descoberta ML | 60D,MORNO
+02 - VV DIP 60D - 25% relacionamento,MORNO
+03 - Engajamentos 365D [AUTO],MORNO
+03 - Engajamentos 365D [STORY],MORNO
+03 - Interesses em Programação,FRIO
+03 - Semelhantes a compradores 1%,FRIO
+03 - Vídeo view 60D,MORNO
+03 - VV - 25% | Videos com +5 min | 30D + VV - 50% | App Financeiro + Vendas | 60D,MORNO
+03 - VV DIP 60D - 25% relacionamento,MORNO
+03 - VV DIP 60D - 75% descoberta,MORNO
+04 - Engajamento FB e IG 60D,QUENTE
+04 - Interesses em Programação,FRIO
+04 - Interesses em Programação [AUTO],FRIO
+04 - Interesses em Programação [STORY],FRIO
+04 - LLK 1% cartão [AUTO],FRIO
+04 - LLK 1% cartão [STORY],FRIO
+04 - LLK 1% lista alunos [AUTO],FRIO
+04 - LLK 1% lista alunos [STORY],FRIO
+04 - LLK 1% obrigado [AUTO],FRIO
+04 - LLK 2% obrigado [STORY],FRIO
+04 - LLK 5% lista alunos [STORY],FRIO
+04 - LLK 5% purchase 180D [AUTO],FRIO
+"04 - Semelhante (BR, 1%) - Lista | Compradores cartão de crédito",FRIO
+"04 - Semelhante (BR, 1%) - Pixel - Purchase | Todos os Produtos | 90D",FRIO
+04 - Todos os mornos 365D (env. + VV + site),MORNO
+04 - VV DIP 60D - 75% descoberta,MORNO
+05 - Interesses em Programação,FRIO
+"05 - Semelhante (BR, 1%) - Lista | Compradores cartão de crédito",FRIO
+"05 - Semelhante (BR, 1%) - Pixel - Purchase | Todos os Produtos | 90D",FRIO
+05 - Semelhante a compradores 3%,FRIO
+05 - Semelhantes a compradores 1%,FRIO
+Engajamento FB e IG 30D,QUENTE
+Engajamento FB e IG 60D,QUENTE
+Interesses em Programação,FRIO
+PageView | Site Asimov | 10D | Feeds,QUENTE
+PageView | Site Asimov | 10D | Story IG,QUENTE
+PageView | Trilha Dash | 180D | Feeds,QUENTE
+PageView | Trilha Dash | 180D | Story IG,QUENTE
+Pixel - PageView | Trilha Dash | 30D,QUENTE
+Pixel - PageView | Trilha Dash | 30D + Engajamento FB e IG 30D,QUENTE
+Pixel - PageView | Trilha Dash | 60D + Engajamento FB e IG 60D,QUENTE
+"Semelhante (BR, 1%) - Lista | Compradores cartão de crédito",FRIO
+"Semelhante (BR, 1%) - Lista | Compradores DIP",FRIO
+"Semelhante (BR, 1%) - Pixel - Purchase | Todos os Produtos | 14D",FRIO
+"Semelhante (BR, 2%) - Lista | Compradores DIP",FRIO
+Semelhante 2% compradores,FRIO
+Semelhantes a compradores 1%,FRIO
+VV - 25% | Videos com +5 min | 30D + VV - 50% | App Financeiro + Vendas | 60D,MORNO
+VV - 50% | Campanha descoberta ML | 60D,MORNO
+Envolvimento FB + IG 180D,QUENTE
+Interesses em Programação (18 a 46),FRIO
+Interesses em Programação (20 a 48),FRIO
+Interesses em Programação  (22 a 50),FRIO
+Interesses Data Science e Machine Learning,FRIO
+Interesses em Programação 2,FRIO
+Interesses em Python,FRIO
+Engajamento FB + IG 90D,QUENTE
+Pixel - PageView | Trilha Dash | 14D + VV - 50% | App Financeiro + Vendas | 14D,QUENTE
+Pixel - PageView | Trilha Dash | 30D + VV - 50% | App Financeiro + Vendas | 30D,QUENTE
+Semelhante de Compra 90D,FRIO
+Semelhante Lista Compradores DIP,FRIO
+VV - 50% | App Financeiro + Vendas | 180D,MORNO
+Semelhante de Compra 14D,FRIO
+Visitantes FB + IG 180D,QUENTE
+Visitantes FB + IG 180D + Pixel - PageView | Site Asimov | 180D,QUENTE
+Pixel - PageView | Site Asimov | 180D,QUENTE
+Pixel - PageView | Trilha Dash | 180D,QUENTE
+Pixel - PageView | Trilha Dash | 14D,QUENTE
+Pixel - Checkout | Todos os Produtos | 180D,QUENTE
+VV - 50% | Três Cursos + Cinco Projetos | 180D + VV - 50% | App Financeiro + Vendas | 180D,MORNO
+Semelhante de Compra 180D,FRIO
+Semelhante de Envolvimento 180D,FRIO
+VV - ThruPlay | Conversão/Remarketing DIP | 180D,MORNO
+Semelhante de Compra 90D + Envolvimento 180D,FRIO
+Engajamento FB + IG 21D,QUENTE
+Pixel - PageView | Trilha Dash | 30D + Pixel - Assinar | Clicou em assinar DIP | 30D,QUENTE
+PageView - Trilha Dash 14D,QUENTE
+Semelhante de Purchase 90D + Envolvimento 180D,FRIO
