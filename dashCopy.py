@@ -35,9 +35,10 @@ df_filter = df[(df['product'].isin(product))
             & df['TEMPERATURA'].isin(temp)]
             
 
-agg_full = df_filter.groupby(['product','kind']).agg({'clicks':'sum', 'impressions':'sum', 'spend':'sum', 'purchase_value':'sum', 
-                                     'purchase':'sum','ctr_acc':'first', 'frequency':'mean'})
+agg_full = df_filter.groupby(['product','kind']).agg({'clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
+                                     'purchase':'sum','ctr_acc':'first'})
 
+agg_full['frequency'] = agg_full['impressions'] / agg_full['reach']
 agg_full['ctr'] = agg_full['clicks'] / agg_full['impressions'] * 100
 agg_full['cpm'] = agg_full['spend'] / agg_full['impressions'] * 1000
 agg_full['roas'] = agg_full['purchase_value'] / agg_full['spend']
@@ -46,7 +47,7 @@ agg_full['cpa'] = agg_full['spend'] / agg_full['purchase']
 agg_full['score'] = agg_full['ctr'] * agg_full['clicks']
 agg_full['ctr_delta'] = ((agg_full['ctr'] / agg_full['ctr_acc']) - 1) * 100
 
-agg_full = agg_full.drop(['purchase_value', 'ctr_acc'], axis=1)
+agg_full = agg_full.drop(['purchase_value', 'ctr_acc','reach'], axis=1)
 agg_full
 
 ############ Analítico ####################
@@ -62,9 +63,11 @@ if asc == 'Ascendente':
 else:
     ascending=False
 
-agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','clicks':'sum', 'impressions':'sum', 'spend':'sum', 'purchase_value':'sum', 
-                                     'purchase':'sum','ctr_acc':'first', 'frequency':'mean'})
+agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
+                                     'purchase':'sum','ctr_acc':'first'})
+
 agg.rename(columns={'date_start':'dias', 'insta_link':'Anúncio', 'thumb_link':''}, inplace=True)
+agg['frequency'] = agg['impressions'] / agg['reach']
 agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
 agg['cpm'] = agg['spend'] / agg['impressions'] * 1000
 agg['roas'] = agg['purchase_value'] / agg['spend']
@@ -84,7 +87,7 @@ for i in range(len(agg)):
 
 
 agg.sort_values(by=classify, ascending=ascending, inplace=True)
-agg = agg.drop(['purchase_value', 'ctr_acc'], axis=1).round(2)
+agg = agg.drop(['purchase_value', 'ctr_acc','reach'], axis=1).round(2)
 
 def color_negative(v, color):
     return f"color: {color};" if v < 1 else None
@@ -222,7 +225,7 @@ st.write("""
 
 frequency_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
-    y=alt.Y('frequency'),
+    y=alt.Y('frequency_acc'),
     color='month'
 ).interactive()
 
