@@ -20,7 +20,6 @@ temp = st.multiselect("TEMPERATURA",(list(df['TEMPERATURA'].unique())),'FRIO')
 product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
 kind = st.multiselect("TIPO",(list(df['kind'].unique())),default=['ESCALA'])
 objective = st.multiselect("OBJETIVO",(list(df['objective'].unique())),default=['CONVERSIONS'])
-#adset_name = st.multiselect("ADSET",(list(df['adset_name'].unique())))
 
 start_date, end_date = st.date_input('start date  - end date :', [datetime.today()-timedelta(30), datetime.today()])
 if start_date <= end_date:
@@ -34,12 +33,11 @@ df_filter = df[(df['product'].isin(product))
             & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
             & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
             & df['TEMPERATURA'].isin(temp)
-            #& df['adset_name'].isin(adset_name)
             ]
             
 
 agg_full = df_filter.groupby(['product','kind']).agg({'clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
-                                     'purchase':'sum','ctr_acc':'first'})
+                                     'purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
 
 agg_full['frequency'] = agg_full['impressions'] / agg_full['reach']
 agg_full['ctr'] = agg_full['clicks'] / agg_full['impressions'] * 100
@@ -47,8 +45,8 @@ agg_full['cpm'] = agg_full['spend'] / agg_full['impressions'] * 1000
 agg_full['roas'] = agg_full['purchase_value'] / agg_full['spend']
 agg_full['cpc'] = agg_full['spend'] / agg_full['clicks']
 agg_full['cpa'] = agg_full['spend'] / agg_full['purchase']
-agg_full['score'] = agg_full['ctr'] * agg_full['clicks']
-agg_full['ctr_delta'] = ((agg_full['ctr'] / agg_full['ctr_acc']) - 1) * 100
+#agg_full['score'] = agg_full['ctr'] * agg_full['clicks']
+#agg_full['ctr_delta'] = ((agg_full['ctr'] / agg_full['ctr_acc']) - 1) * 100
 
 agg_full = agg_full.drop(['purchase_value', 'ctr_acc','reach'], axis=1)
 agg_full
@@ -67,7 +65,7 @@ else:
     ascending=False
 
 agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
-                                     'purchase':'sum','ctr_acc':'first'})
+                                     'purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
 
 agg.rename(columns={'date_start':'dias', 'insta_link':'Anúncio', 'thumb_link':''}, inplace=True)
 agg['frequency'] = agg['impressions'] / agg['reach']
@@ -76,8 +74,8 @@ agg['cpm'] = agg['spend'] / agg['impressions'] * 1000
 agg['roas'] = agg['purchase_value'] / agg['spend']
 agg['cpc'] = agg['spend'] / agg['clicks']
 agg['cpa'] = agg['spend'] / agg['purchase']
-agg['score'] = agg['ctr'] * agg['clicks']
-agg['ctr_delta'] = ((agg['ctr'] / agg['ctr_acc']) - 1) * 100
+#agg['score'] = agg['ctr'] * agg['clicks']
+#agg['ctr_delta'] = ((agg['ctr'] / agg['ctr_acc']) - 1) * 100
 
 agg.replace([np.inf, -np.inf], 0, inplace=True)
 
@@ -118,7 +116,10 @@ f = {'ctr':'{:.2f}',
      'score':'{:.2f}',
      'spend':'{:.2f}',
      'ctr_delta':'{:.2f}',
-     'frequency':'{:.2f}'}
+     'frequency':'{:.2f}',
+     'video_25' :'{:.0f}',
+     'video_50' :'{:.0f}',
+     'video_75' :'{:.0f}'}
 df_view.format(f)
 
 
