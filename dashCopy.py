@@ -20,7 +20,7 @@ temp = st.multiselect("TEMPERATURA",(list(df['TEMPERATURA'].unique())),'FRIO')
 product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
 kind = st.multiselect("TIPO",(list(df['kind'].unique())),default=['ESCALA'])
 objective = st.multiselect("OBJETIVO",(list(df['objective'].unique())),default=['CONVERSIONS'])
-adset_name = st.multiselect("ADSET",(list(df['adset_name'].unique())))
+#adset_name = st.multiselect("ADSET",(list(df['adset_name'].unique())))
 
 start_date, end_date = st.date_input('start date  - end date :', [datetime.today()-timedelta(30), datetime.today()])
 if start_date <= end_date:
@@ -34,7 +34,8 @@ df_filter = df[(df['product'].isin(product))
             & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
             & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
             & df['TEMPERATURA'].isin(temp)
-            & df['adset_name'].isin(adset_name)]
+            #& df['adset_name'].isin(adset_name)
+            ]
             
 
 agg_full = df_filter.groupby(['product','kind']).agg({'clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
