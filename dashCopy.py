@@ -27,6 +27,12 @@ if adset:
 else:
     adset = list(df['adset_name'].unique())
 
+ad = st.checkbox('AD')
+if ad:
+    ad = st.multiselect("AD",(list(df['name'].unique())))
+else:
+    ad = list(df['name'].unique())
+
 start_date, end_date = st.date_input('start date  - end date :', [datetime.today()-timedelta(30), datetime.today()])
 if start_date <= end_date:
     pass
@@ -40,6 +46,7 @@ df_filter = df[(df['product'].isin(product))
             & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
             & df['TEMPERATURA'].isin(temp)
             & df['adset_name'].isin(adset)
+            & df['name'].isin(ad)
             ]
             
 
