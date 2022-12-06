@@ -50,9 +50,10 @@ df_filter = df[(df['product'].isin(product))
             ]
             
 
-agg_full = df_filter.groupby(['product','kind','adset_name']).agg({'clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
+agg_full = df_filter.groupby(['product','kind','adset_name']).agg({'date_start':'nunique','clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
                                      'purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
 
+agg_full.rename(columns={'date_start':'dias'}, inplace=True)
 agg_full['frequency'] = agg_full['impressions'] / agg_full['reach']
 agg_full['ctr'] = agg_full['clicks'] / agg_full['impressions'] * 100
 agg_full['cpm'] = agg_full['spend'] / agg_full['impressions'] * 1000
