@@ -20,6 +20,7 @@ temp = st.multiselect("TEMPERATURA",(list(df['TEMPERATURA'].unique())),'FRIO')
 product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
 kind = st.multiselect("TIPO",(list(df['kind'].unique())),default=['ESCALA'])
 objective = st.multiselect("OBJETIVO",(list(df['objective'].unique())),default=['CONVERSIONS'])
+#adset = st.multiselect("ADSET",(list(df['adset_name'].unique())))
 
 start_date, end_date = st.date_input('start date  - end date :', [datetime.today()-timedelta(30), datetime.today()])
 if start_date <= end_date:
@@ -33,6 +34,7 @@ df_filter = df[(df['product'].isin(product))
             & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
             & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
             & df['TEMPERATURA'].isin(temp)
+            #& df['adset_name'].isin(adset)
             ]
             
 
@@ -234,6 +236,43 @@ frequency_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="b
 ).interactive()
 
 st.altair_chart(frequency_line, use_container_width=True)
+
+st.write("""
+ Clicks X Tempo
+""")
+
+clicks_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
+    x='date_start',
+    y=alt.Y('clicks_acc'),
+    color='month'
+).interactive()
+
+st.altair_chart(clicks_line, use_container_width=True)
+
+st.write("""
+ Impressions X Tempo
+""")
+
+impressions_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
+    x='date_start',
+    y=alt.Y('impressions_acc'),
+    color='month'
+).interactive()
+
+st.altair_chart(impressions_line, use_container_width=True)
+
+st.write("""
+ ROAS X Tempo
+""")
+
+roas_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
+    x='date_start',
+    y=alt.Y('purchase_roas_acc'),
+    color='month'
+).interactive()
+
+st.altair_chart(roas_line, use_container_width=True)
+
 
 st.write("""
  CTR X CPM
