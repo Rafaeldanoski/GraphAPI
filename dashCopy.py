@@ -214,7 +214,7 @@ st.write("""
 ctr_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y=alt.Y('ctr_acc'),
-        color='month'
+    color='month'
 ).interactive()
 
 st.altair_chart(ctr_line, use_container_width=True)
