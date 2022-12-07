@@ -18,15 +18,26 @@ st.write("""
 """)
 
 ############ Seletores ######################
-temp = st.multiselect("TEMPERATURA",(list(df['TEMPERATURA'].unique())),'FRIO')
-product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
-kind = st.multiselect("TIPO",(list(df['kind'].unique())),default=['ESCALA'])
-objective = st.multiselect("OBJETIVO",(list(df['objective'].unique())),default=['CONVERSIONS'])
+col1, col2, col3, col4 = st.columns(4)
+
+with col1:
+   temp = st.multiselect("TEMPERATURA",(list(df['TEMPERATURA'].unique())),'FRIO')
+
+with col2:
+   product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
+
+with col3:
+   kind = st.multiselect("TIPO",(list(df['kind'].unique())),default=['ESCALA'])
+
+with col4:
+   objective = st.multiselect("OBJETIVO",(list(df['objective'].unique())),default=['CONVERSIONS'])
+   
 
 df_pre_filter = df[(df['product'].isin(product)) 
                 & (df['kind'].isin(kind)) 
                 & df['TEMPERATURA'].isin(temp)
                 ]
+
 
 adset = st.checkbox('ADSET')
 if adset:
@@ -40,11 +51,13 @@ if ad:
 else:
     ad = list(df_pre_filter['name'].unique())
 
-start_date, end_date = st.date_input('start date  - end date :', [datetime.today()-timedelta(30), datetime.today()])
-if start_date <= end_date:
-    pass
-else:
-    st.error('Error: End date must fall after start date.')
+col_date, col_empty, col_empty2, col_empty3 = st.columns(4)
+with col_date:
+    start_date, end_date = st.date_input('DATA INÍCIO - DATA FIM :', [datetime.today()-timedelta(30), datetime.today()])
+    if start_date <= end_date:
+        pass
+    else:
+        st.error('Error: End date must fall after start date.')
 
 ########### Totais ##########################
 df_filter = df[(df['product'].isin(product)) 
@@ -76,17 +89,23 @@ agg_full = agg_full.drop(['purchase_value', 'ctr_acc','reach'], axis=1)
 st.dataframe(agg_full, use_container_width=True)
 
 ############ Analítico ####################
-classify = st.selectbox(
-    'Classificador',
-    ('ctr', 'cpm', 'cpc', 'spend','clicks','impressions','purchase'))
+col_classify, col_asc, col_empty2, col_empty3 = st.columns(4)
+with col_classify:
+    classify = st.selectbox(
+        'CLASSIFICADOR',
+        ('ctr', 'cpm', 'cpc', 'spend','clicks','impressions','purchase'))
 
-asc = st.selectbox('',
-    ('Ascendente', 'Descendente'),label_visibility='collapsed')
+with col_asc:
+    asc = st.selectbox(
+        '',
+        ('Ascendente', 'Descendente'))
 
 if asc == 'Ascendente':
     ascending=True
 else:
     ascending=False
+
+
 
 agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
                                      'purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
@@ -146,55 +165,58 @@ f = {'ctr':'{:.2f}',
      'video_75' :'{:.0f}'}
 df_view.format(f)
 
-
 st.write(df_view.to_html(escape=False, index=False), unsafe_allow_html=True, use_container_width=True)
 
 ########################## Gráficos ######################
-st.write("""
- CTR
-""")
+col_violin, col_scatter = st.columns(2)
 
-violin_plot = alt.Chart(agg).transform_density(
-    'ctr',
-    as_=['ctr', 'density'],
-    extent=[-0.5, 2.5]
-).mark_area(orient='horizontal').encode(
-    y='ctr',
-    x=alt.X(
-        'density:Q',
-        stack='center',
-        impute=None,
-        title=None,
-        axis=alt.Axis(labels=False, values=[0],grid=False, ticks=True),
-    ),
-    column=alt.Column(
-        header=alt.Header(
-            titleOrient='bottom',
-            labelOrient='bottom',
-            labelPadding=0,
+with col_violin:
+    st.write("""
+    CTR
+    """)
+
+    violin_plot = alt.Chart(agg).transform_density(
+        'ctr',
+        as_=['ctr', 'density'],
+        extent=[-0.5, 2.5]
+    ).mark_area(orient='horizontal').encode(
+        y='ctr',
+        x=alt.X(
+            'density:Q',
+            stack='center',
+            impute=None,
+            title=None,
+            axis=alt.Axis(labels=False, values=[0],grid=False, ticks=True),
         ),
-    )
-).properties(
-    width=0
-).configure_facet(
-    spacing=0
-).configure_view(
-    stroke=None
-).interactive()
+        column=alt.Column(
+            header=alt.Header(
+                titleOrient='bottom',
+                labelOrient='bottom',
+                labelPadding=0,
+            ),
+        )
+    ).properties(
+        width=0
+    ).configure_facet(
+        spacing=0
+    ).configure_view(
+        stroke=None
+    ).interactive()
 
 
-st.altair_chart(violin_plot, use_container_width=False)
+    st.altair_chart(violin_plot, use_container_width=False)
+    
+with col_scatter:
+    st.write("""
+    CTR X CPM
+    """)
 
-st.write("""
- CTR X CPM
-""")
+    scatter_full = alt.Chart(agg).mark_point().encode(
+        x='cpm',
+        y='ctr'
+    ).interactive()
 
-scatter_full = alt.Chart(agg).mark_point().encode(
-    x='cpm',
-    y='ctr'
-).interactive()
-
-st.altair_chart(scatter_full, use_container_width=False)
+    st.altair_chart(scatter_full, use_container_width=False)
 
 
 ###################### KPI por anúncio #######################
