@@ -11,6 +11,8 @@ df = pd.read_csv('ads_full.csv', sep=';')
 ############## DASH ##########################
 st.set_page_config(page_title="DashCopy",layout="wide",page_icon="favicon.ico")
 
+st.sidebar.success("Selecione uma página acima")
+
 st.write("""
 # Dash Copy
 """)
