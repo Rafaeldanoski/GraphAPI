@@ -21,17 +21,22 @@ product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'
 kind = st.multiselect("TIPO",(list(df['kind'].unique())),default=['ESCALA'])
 objective = st.multiselect("OBJETIVO",(list(df['objective'].unique())),default=['CONVERSIONS'])
 
+df_pre_filter = df[(df['product'].isin(product)) 
+                & (df['kind'].isin(kind)) 
+                & df['TEMPERATURA'].isin(temp)
+                ]
+
 adset = st.checkbox('ADSET')
 if adset:
-    adset = st.multiselect("ADSET",(list(df['adset_name'].unique())))
+    adset = st.multiselect("ADSET",(list(df_pre_filter['adset_name'].unique())))
 else:
-    adset = list(df['adset_name'].unique())
+    adset = list(df_pre_filter['adset_name'].unique())
 
 ad = st.checkbox('AD')
 if ad:
-    ad = st.multiselect("AD",(list(df['name'].unique())))
+    ad = st.multiselect("AD",(list(df_pre_filter['name'].unique())))
 else:
-    ad = list(df['name'].unique())
+    ad = list(df_pre_filter['name'].unique())
 
 start_date, end_date = st.date_input('start date  - end date :', [datetime.today()-timedelta(30), datetime.today()])
 if start_date <= end_date:
@@ -147,7 +152,6 @@ st.write("""
  CTR
 """)
 
-
 violin_plot = alt.Chart(agg).transform_density(
     'ctr',
     as_=['ctr', 'density'],
@@ -213,11 +217,12 @@ st.write("""
 
 ctr_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
-    y=alt.Y('ctr_acc'),
-    color='month'
-).interactive()
+    y='ctr_acc',
+    color='adset_name:N',
+    strokeDash='month'
+)
 
-st.altair_chart(ctr_line, use_container_width=True)
+st.altair_chart(ctr_line.interactive(), use_container_width=True)
 
 st.write("""
  Spend X Tempo
@@ -226,7 +231,8 @@ st.write("""
 spend_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y='spend_acc',
-    color='month'
+    color='adset_name:N',
+    strokeDash='month'
 ).interactive()
 
 st.altair_chart(spend_line, use_container_width=True)
@@ -238,7 +244,8 @@ st.write("""
 cpm_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y=alt.Y('cpm_acc'),
-    color='month'
+    color='adset_name:N',
+    strokeDash='month'
 ).interactive()
 
 st.altair_chart(cpm_line, use_container_width=True)
@@ -250,7 +257,8 @@ st.write("""
 frequency_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y=alt.Y('frequency_acc'),
-    color='month'
+    color='adset_name:N',
+    strokeDash='month'
 ).interactive()
 
 st.altair_chart(frequency_line, use_container_width=True)
@@ -262,7 +270,8 @@ st.write("""
 clicks_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y=alt.Y('clicks_acc'),
-    color='month'
+    color='adset_name:N',
+    strokeDash='month'
 ).interactive()
 
 st.altair_chart(clicks_line, use_container_width=True)
@@ -274,7 +283,8 @@ st.write("""
 impressions_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y=alt.Y('impressions_acc'),
-    color='month'
+    color='adset_name:N',
+    strokeDash='month'
 ).interactive()
 
 st.altair_chart(impressions_line, use_container_width=True)
@@ -286,7 +296,8 @@ st.write("""
 roas_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y=alt.Y('purchase_roas_acc'),
-    color='month'
+    color='adset_name:N',
+    strokeDash='month'
 ).interactive()
 
 st.altair_chart(roas_line, use_container_width=True)
