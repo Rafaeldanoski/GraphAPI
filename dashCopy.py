@@ -132,7 +132,6 @@ for i in range(len(agg)):
 
 agg.sort_values(by=classify, ascending=ascending, inplace=True)
 agg = agg.drop(['purchase_value', 'ctr_acc','reach'], axis=1).round(2)
-agg
 
 def color_negative(v, color):
     return f"color: {color};" if v < 1 else None
