@@ -54,11 +54,11 @@ for i in range(len(agg)):
     name = agg.index[i]
     link = agg['insta_link'][i]
     if agg['impressions'][i] < 10000:
-        st.write(f"#### - [{name}]({link}) --------> Dados insuficientes para análise - Impressões: "+ str(agg['impressions'][i]) + "/ Gasto: R$ " + str(round(agg['spend'][i],2)))
+        st.write(f"#### - ➖ [{name}]({link}) --------> Dados insuficientes para análise - Impressões: "+ str(agg['impressions'][i]) + "/ Gasto: R$ " + str(round(agg['spend'][i],2)))
     elif agg['ctr'][i] >= 1.5:
-        st.write(f"#### - [{name}]({link}) --------> Promover à Etapa 2 - CTR: "+ str(round(agg['ctr'][i],2)))
+        st.write(f"#### - ✅ [{name}]({link}) --------> Promover à Etapa 2 - CTR: "+ str(round(agg['ctr'][i],2)))
     else:
-        st.write(f"#### - [{name}]({link}) --------> Pausar veiculação - CTR: "+ str(round(agg['ctr'][i],2)))
+        st.write(f"#### - 🚫 [{name}]({link}) --------> Pausar veiculação - CTR: "+ str(round(agg['ctr'][i],2)))
 
 
 ############ ETAPA 2 ######################
