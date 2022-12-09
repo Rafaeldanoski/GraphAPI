@@ -19,7 +19,7 @@ st.write("""
 col_date, col_prod = st.columns(2)
 
 with col_date:
-    start_date, end_date = st.date_input('DATA INÍCIO - DATA FIM :', [datetime.today()-timedelta(30), datetime.today()])
+    start_date, end_date = st.date_input('DATA INÍCIO - DATA FIM :', [datetime.today()-timedelta(7), datetime.today()])
     if start_date <= end_date:
         pass
     else:
