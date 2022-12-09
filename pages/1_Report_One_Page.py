@@ -2,7 +2,6 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
-from IPython.display import HTML
 
 ############## DATASET #######################
 df = pd.read_csv('ads_full.csv', sep=';')
@@ -52,12 +51,14 @@ agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
 agg.sort_values(by='ctr', ascending=False, inplace=True)
 
 for i in range(len(agg)):
+    name = agg.index[i]
+    link = agg['insta_link'][i]
     if agg['impressions'][i] < 10000:
-        st.write("#### - " + agg.index[i]+" --------> Dados insuficientes para análise - Impressões: "+ str(agg['impressions'][i]) + "/ Gasto: R$ " + str(round(agg['spend'][i],2)))
+        st.write(f"#### - [{name}]({link}) --------> Dados insuficientes para análise - Impressões: "+ str(agg['impressions'][i]) + "/ Gasto: R$ " + str(round(agg['spend'][i],2)))
     elif agg['ctr'][i] >= 1.5:
-        st.write("#### - " + agg.index[i]+" --------> Promover à Etapa 2 - CTR: "+ str(round(agg['ctr'][i],2)))
+        st.write(f"#### - [{name}]({link}) --------> Promover à Etapa 2 - CTR: "+ str(round(agg['ctr'][i],2)))
     else:
-        st.write("#### - " + agg.index[i]+" --------> Pausar veiculação - CTR: "+ str(round(agg['ctr'][i],2)))
+        st.write(f"#### - [{name}]({link}) --------> Pausar veiculação - CTR: "+ str(round(agg['ctr'][i],2)))
 
 
 ############ ETAPA 2 ######################
