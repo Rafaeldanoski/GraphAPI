@@ -44,11 +44,22 @@ df_ad_test = df[df['adset_name'].isin(adset_test)
               & df['impressions'] > 0  
                ]
 
+df_ad_test.reset_index(drop=True, inplace=True)
+
 agg = df_ad_test.groupby(['name']).agg({'insta_link':'last','clicks':'sum', 'impressions':'sum', 'spend':'sum'})
 
 agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
 
 agg.sort_values(by='ctr', ascending=False, inplace=True)
+
+st.write("##### - *Público personalizado:* "+df_ad_test['Público personalizado:'][0])
+st.write("##### - *Exceto Público personalizado:* "+df_ad_test['Exceto Público Personalizado:'][0])
+st.write("##### - *Idade:* "+df_ad_test['Idade:'][0])
+st.write("##### - *Posicionamentos:* "+df_ad_test['Posicionamentos:'][0])
+st.write("##### - *Gênero:* "+df_ad_test['Gênero:'][0])
+st.write("##### - *Pessoas que correspondem a:* "+df_ad_test['Pessoas que correspondem a:'][0])
+st.write("##### - *E também deve corresponder a:* "+df_ad_test['E também deve corresponder a:'][0])
+st.write("##### - *Excluir:* "+df_ad_test['Excluir:'][0])
 
 for i in range(len(agg)):
     name = agg.index[i]
