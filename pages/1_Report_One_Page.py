@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
+from IPython.display import HTML
 
 ############## DATASET #######################
 df = pd.read_csv('ads_full.csv', sep=';')
@@ -11,9 +12,7 @@ st.set_page_config(page_title="Report One Page",layout="wide",page_icon="report.
 
 st.sidebar.success("Selecione uma página acima")
 
-st.write("""
-# Report Processo de Tráfego
-""")
+st.markdown("<h1 style='text-align: center;'>REPORT PROCESSO DE TRÁFEGO</h1>", unsafe_allow_html=True)
 
 ############ Seletores ######################
 col_date, col_prod = st.columns(2)
@@ -26,11 +25,13 @@ with col_date:
         st.error('Error: End date must fall after start date.')
 
 with col_prod:
-    product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
+    #product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
+    product = st.selectbox("PRODUTO",('DIP','ML','AUT','QUANT'))
 
-st.write("""
-# ETAPA 1
-""")
+
+############ ETAPA 1 ######################,
+
+st.markdown("<h1 style='text-align: center;'>ETAPA 1</h1>", unsafe_allow_html=True)
 
 st.write("""
 ### Conjunto de Anúncio: 02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%
@@ -38,26 +39,27 @@ st.write("""
 
 adset_test = ['02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%']
 df_ad_test = df[df['adset_name'].isin(adset_test)
-              & df['product'].isin(product)
+              & df['product'].isin([product])
               & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
-              & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))  
+              & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
+              & df['impressions'] > 0  
                ]
 
 agg = df_ad_test.groupby(['name']).agg({'insta_link':'last','clicks':'sum', 'impressions':'sum', 'spend':'sum'})
 
 agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
 
-for i in range(len(agg)):
-    link = agg['insta_link'][i]
-    agg['insta_link'][i] = f'<a href="{link}">'+agg.index[i]+'</a>'
-
 agg.sort_values(by='ctr', ascending=False, inplace=True)
-agg
 
 for i in range(len(agg)):
     if agg['impressions'][i] < 10000:
-        st.write(agg['insta_link'][i]+" --------> Dados insuficientes para análise - Impressões: "+ str(agg['impressions'][i]) + "/ Gasto: R$ " + str(round(agg['spend'][i],2)))
+        st.write("#### - " + agg.index[i]+" --------> Dados insuficientes para análise - Impressões: "+ str(agg['impressions'][i]) + "/ Gasto: R$ " + str(round(agg['spend'][i],2)))
     elif agg['ctr'][i] >= 1.5:
-        st.write(agg.index[i]+" --------> Promover à Etapa 2 - CTR: "+ str(round(agg['ctr'][i],2)))
+        st.write("#### - " + agg.index[i]+" --------> Promover à Etapa 2 - CTR: "+ str(round(agg['ctr'][i],2)))
     else:
-        st.write(agg.index[i]+" --------> Pausar veiculação - CTR: "+ str(round(agg['ctr'][i],2)))
+        st.write("#### - " + agg.index[i]+" --------> Pausar veiculação - CTR: "+ str(round(agg['ctr'][i],2)))
+
+
+############ ETAPA 2 ######################
+
+st.markdown("<h1 style='text-align: center;'>ETAPA 2</h1>", unsafe_allow_html=True)
