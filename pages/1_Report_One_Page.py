@@ -24,11 +24,9 @@ with col_date:
         st.error('Error: End date must fall after start date.')
 
 with col_prod:
-    #product = st.multiselect("PRODUTO",(list(df['product'].unique())),default=['DIP'])
     product = st.selectbox("PRODUTO",('DIP','ML','AUT','QUANT'))
 
-
-############ ETAPA 1 ######################,
+############ ETAPA 1 ######################
 
 st.markdown("<h1 style='text-align: center;'>ETAPA 1</h1>", unsafe_allow_html=True)
 
@@ -46,30 +44,36 @@ df_ad_test = df[df['adset_name'].isin(adset_test)
 
 df_ad_test.reset_index(drop=True, inplace=True)
 
-agg = df_ad_test.groupby(['name']).agg({'insta_link':'last','clicks':'sum', 'impressions':'sum', 'spend':'sum'})
+agg = df_ad_test.groupby(['name']).agg({'product':'last','insta_link':'last','clicks':'sum', 'impressions':'sum', 'spend':'sum'})
 
 agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
 
 agg.sort_values(by='ctr', ascending=False, inplace=True)
 
-st.write("##### - *Público personalizado:* "+df_ad_test['Público personalizado:'][0])
-st.write("##### - *Exceto Público personalizado:* "+df_ad_test['Exceto Público Personalizado:'][0])
-st.write("##### - *Idade:* "+df_ad_test['Idade:'][0])
-st.write("##### - *Posicionamentos:* "+df_ad_test['Posicionamentos:'][0])
-st.write("##### - *Gênero:* "+df_ad_test['Gênero:'][0])
+st.write("##### - *Público personalizado:* "+str(df_ad_test['Público personalizado:'][0]))
+st.write("##### - *Exceto Público personalizado:* "+str(df_ad_test['Exceto Público Personalizado:'][0]))
+st.write("##### - *Idade:* "+str(df_ad_test['Idade:'][0]))
+st.write("##### - *Posicionamentos:* "+str(df_ad_test['Posicionamentos:'][0]))
+st.write("##### - *Gênero:* "+str(df_ad_test['Gênero:'][0]))
 st.write("##### - *Pessoas que correspondem a:* "+str(df_ad_test['Pessoas que correspondem a:'][0]))
 st.write("##### - *E também deve corresponder a:* "+str(df_ad_test['E também deve corresponder a:'][0]))
 st.write("##### - *Excluir:* "+str(df_ad_test['Excluir:'][0]))
+
+best = ['', 0]
+for i in range(len(agg)):
+    if (agg['ctr'][i] > best[1]) and (agg['impressions'][i] > 10000):
+        best[0] = agg.index[i]
+        best[1] = agg['ctr'][i]
 
 for i in range(len(agg)):
     name = agg.index[i]
     link = agg['insta_link'][i]
     if agg['impressions'][i] < 10000:
         st.write(f"#### - ➖ [{name}]({link}) --------> Dados insuficientes para análise - Impressões: "+ str(agg['impressions'][i]) + "/ Gasto: R$ " + str(round(agg['spend'][i],2)))
-    elif agg['ctr'][i] >= 1.5:
-        st.write(f"#### - ✅ [{name}]({link}) --------> Promover à Etapa 2 - CTR: "+ str(round(agg['ctr'][i],2)))
+    elif agg.index[i] == best[0]:
+        st.write(f"#### - ✅ [{name}]({link}) --------> Promover à Etapa 2 - CTR: " + str(round(agg['ctr'][i],2)))
     else:
-        st.write(f"#### - 🚫 [{name}]({link}) --------> Pausar veiculação - CTR: "+ str(round(agg['ctr'][i],2)))
+        st.write(f"#### - 🚫 [{name}]({link}) --------> Pausar veiculação - CTR: " + str(round(agg['ctr'][i],2)))
 
 
 ############ ETAPA 2 ######################
