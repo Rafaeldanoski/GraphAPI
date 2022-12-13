@@ -39,7 +39,7 @@ df_ad_test = df[df['adset_name'].isin(adset_test)
               & df['product'].isin([product])
               & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
               & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
-              & df['impressions'] > 0  
+              & (df['impressions'] > 0)
                ]
 
 df_ad_test.reset_index(drop=True, inplace=True)
