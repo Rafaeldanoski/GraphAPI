@@ -28,7 +28,7 @@ class GraphAPI:
     def _set_fields(self):
         self.fields = ['cpc', 'ctr', 'actions', 'spend', 'frequency', 'cost_per_unique_click',
                        'clicks ', 'video_p25_watched_actions', 'video_p50_watched_actions', 'video_p75_watched_actions', 
-                       'reach','impressions','cpm', 'purchase_roas', 'conversion_values','inline_link_clicks']
+                       'reach','impressions','cpm', 'purchase_roas', 'conversion_values','inline_link_clicks',]
         self.mean_based_fields= ['cpc', 'ctr', 'frequency', 'cost_per_unique_click', 'cpm', 'purchase_roas']
 
     # ========================================

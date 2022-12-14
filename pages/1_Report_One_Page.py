@@ -80,3 +80,26 @@ for i in range(len(agg)):
 ############ ETAPA 2 ######################
 
 st.markdown("<h1 style='text-align: center;'>ETAPA 2</h1>", unsafe_allow_html=True)
+
+ad = '45_Dashboardnyc'
+
+df_pub_test = df[(df['product'].isin([product]))
+              & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
+              & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
+              & (df['impressions'] > 0)
+              & (df['name'] == ad)
+               ]            
+df_pub_test.reset_index(drop=True, inplace=True)
+
+import re
+df_pub_test['etapa'] = ""
+for i in range(len(df_pub_test['adset_name'])):
+    a_string = df_pub_test['adset_name'][i]
+    result = re.findall(r"\[([][A-Za-z0-9_: ]+)\]", a_string)
+    try:
+        df_pub_test['etapa'][i] = result[0]
+    except:
+        df_pub_test['etapa'][i] = result
+
+
+df_pub_test
