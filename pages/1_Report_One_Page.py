@@ -25,7 +25,7 @@ with col_date:
         st.error('Error: End date must fall after start date.')
 
 with col_prod:
-    product = st.selectbox("PRODUTO",('DIP','ML','AUT','QUANT'))
+    product = st.selectbox("PRODUTO",('DIP','ML','AUT','QUA'))
 
 ############ ETAPA 1 ######################
 
@@ -42,7 +42,7 @@ st.write("""
 ### Conjunto de Anúncio: 02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%
 """)
 
-adset_test = ['02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%']
+adset_test = ['02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%','02 -  [Etapa 1: Teste de criativo] - Interesses em trader']
 df_ad_test = df_filter[df_filter['adset_name'].isin(adset_test)
                ]
 
