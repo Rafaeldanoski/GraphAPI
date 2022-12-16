@@ -153,7 +153,7 @@ for i in range(len(df_ad_prod['adset_name'])):
     except:
         df_ad_prod['etapa'][i] = result
 
-df_ad_prod = df_filter[df_filter['etapa'].isin(step_prod)]
+df_ad_prod = df_ad_prod[df_ad_prod['etapa'].isin(step_prod)]
 
 df_ad_prod.reset_index(drop=True, inplace=True)
 
