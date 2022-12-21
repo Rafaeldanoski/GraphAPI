@@ -125,7 +125,7 @@ for a in range(len(agg_pub_test['name'].unique())):
         name = agg_pub_test_write['adset_name'][i]
         if agg_pub_test_write['impressions'][i] < 10000:
             st.write(f"#### - ➖ {name} --------> Dados insuficientes para análise - Impressões: "+ str(agg_pub_test_write['impressions'][i]) + "/ Gasto: R$ " + str(round(agg_pub_test_write['spend'][i],2)))
-        elif (agg_pub_test_write.index[i] == best[0]) and (agg_pub_test_write.ctr[i] >= 1.5):
+        elif (agg_pub_test_write.index[i] == best_adset[0]) and (agg_pub_test_write.ctr[i] >= 1.5):
             st.write(f"#### - ✅ {name} --------> Promover à Etapa 3 - CTR: " + str(round(agg_pub_test_write['ctr'][i],2)))
         else:
             st.write(f"#### - 🚫 {name} --------> Pausar veiculação - CTR: " + str(round(agg_pub_test_write['ctr'][i],2)))
@@ -136,7 +136,7 @@ for a in range(len(agg_pub_test['name'].unique())):
 
 st.markdown("<h1 style='text-align: center;'>ETAPA 3</h1>", unsafe_allow_html=True)
 
-step_prod = ['Etapa 1: Teste de criativo','Etapa 2: Teste de publico']
+step_prod = ['Etapa 3: Escala']
 
 df_ad_prod = df[(df['product'].isin([product]))
               & (df['impressions'] > 0)

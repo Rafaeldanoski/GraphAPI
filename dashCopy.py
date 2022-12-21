@@ -59,6 +59,37 @@ with col_date:
     else:
         st.error('Error: End date must fall after start date.')
 
+col_full_period, col_last7, col_last_month, col_empty3, col_empty4, col_empty5, col_empty6, col_empty7, col_empty8 = st.columns(9)
+def reset_full_period():
+    st.session_state['last7'] = False
+    st.session_state['last_month'] = False
+
+def reset_seven():
+    st.session_state['full_period'] = False
+    st.session_state['last_month'] = False
+
+def reset_month():
+    st.session_state['last7'] = False
+    st.session_state['full_period'] = False
+
+with col_full_period:
+    full_period = st.checkbox('Todo o período', key='full_period', on_change=reset_full_period)
+    if full_period:
+        start_date, end_date = df['date_start'].min(), df['date_start'].max()
+
+with col_last7:
+    last7 = st.checkbox('Últimos 7 dias', key='last7', on_change=reset_seven)
+    if last7:
+        start_date, end_date = datetime.today()-timedelta(7), datetime.today()
+
+with col_last_month:
+    last_month = st.checkbox('Últimos 30 dias', key='last_month', on_change=reset_month)
+    if last_month:
+        start_date, end_date = datetime.today()-timedelta(30), datetime.today()
+
+
+
+
 ########### Totais ##########################
 df_filter = df[(df['product'].isin(product)) 
             & (df['kind'].isin(kind)) 
