@@ -85,8 +85,6 @@ for i in range(len(agg)):
 
 st.markdown("<h1 style='text-align: center;'>ETAPA 2</h1>", unsafe_allow_html=True)
 
-#ad = '45_Dashboardnyc'
-
 import re
 df_filter['etapa'] = ""
 for i in range(len(df_filter['adset_name'])):
@@ -130,6 +128,8 @@ for a in range(len(agg_pub_test['name'].unique())):
         else:
             st.write(f"#### - 🚫 {name} --------> Pausar veiculação - CTR: " + str(round(agg_pub_test_write['ctr'][i],2)))
 
+    st.write("")
+
 
 
 ############ ETAPA 3 ######################
@@ -157,21 +157,27 @@ df_ad_prod = df_ad_prod[df_ad_prod['etapa'].isin(step_prod)]
 
 df_ad_prod.reset_index(drop=True, inplace=True)
 
-df_ad_prod_graph = df_ad_prod[df_ad_prod['etapa']=='Etapa 2: Teste de publico']
-df_ad_prod_graph.reset_index(drop=True, inplace=True)
-
-for g in range(len(df_ad_prod_graph['name'].unique())):
+for g in range(len(df_ad_prod['name'].unique())):
 
     st.write(f"""
-    ### Anúncio: {df_ad_prod_graph['name'].unique()[g]}
+    ### Anúncio: {df_ad_prod['name'].unique()[g]}
     """)
 
-    df_line = df_ad_prod[df_ad_prod['name']==df_ad_prod_graph['name'].unique()[g]]
+    with st.expander('INFORMAÇÕES DO PÚBLICO'):
+        st.write("##### - *Público personalizado:* "+str(df_ad_prod['Público personalizado:'][0]))
+        st.write("##### - *Exceto Público personalizado:* "+str(df_ad_prod['Exceto Público Personalizado:'][0]))
+        st.write("##### - *Idade:* "+str(df_ad_prod['Idade:'][0]))
+        st.write("##### - *Posicionamentos:* "+str(df_ad_prod['Posicionamentos:'][0]))
+        st.write("##### - *Gênero:* "+str(df_ad_prod['Gênero:'][0]))
+        st.write("##### - *Pessoas que correspondem a:* "+str(df_ad_prod['Pessoas que correspondem a:'][0]))
+        st.write("##### - *E também deve corresponder a:* "+str(df_ad_prod['E também deve corresponder a:'][0]))
+        st.write("##### - *Excluir:* "+str(df_ad_prod['Excluir:'][0]))
+
+    df_line = df_ad_prod[df_ad_prod['name']==df_ad_prod['name'].unique()[g]]
 
     ctr_line = alt.Chart(df_line).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y='ctr_acc',
-    color='adset_name:N',
     strokeDash='month'
     )
 

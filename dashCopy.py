@@ -53,7 +53,7 @@ else:
 
 col_date, col_empty, col_empty2, col_empty3 = st.columns(4)
 with col_date:
-    start_date, end_date = st.date_input('DATA INÍCIO - DATA FIM :', [datetime.today()-timedelta(30), datetime.today()])
+    start_date, end_date = st.date_input('DATA INÍCIO - DATA FIM :', [datetime.today()-timedelta(days=int(datetime.today().date().strftime("%d"))-1), datetime.today()])
     if start_date <= end_date:
         pass
     else:
