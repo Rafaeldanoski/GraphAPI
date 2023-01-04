@@ -175,6 +175,10 @@ for g in range(len(df_ad_prod['name'].unique())):
 
     df_line = df_ad_prod[df_ad_prod['name']==df_ad_prod['name'].unique()[g]]
 
+    st.write(f"""
+    #### CTR
+    """)
+
     ctr_line = alt.Chart(df_line).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
     y='ctr_acc',
@@ -182,3 +186,27 @@ for g in range(len(df_ad_prod['name'].unique())):
     )
 
     st.altair_chart(ctr_line.interactive(), use_container_width=True)
+
+    st.write(f"""
+    #### CPC
+    """)
+
+    cpc_line = alt.Chart(df_line).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
+    x='date_start',
+    y='cpc_acc',
+    strokeDash='month'
+    )
+
+    st.altair_chart(cpc_line.interactive(), use_container_width=True)
+
+    st.write(f"""
+    #### CPM
+    """)
+
+    cpm_line = alt.Chart(df_line).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
+    x='date_start',
+    y='cpm_acc',
+    strokeDash='month'
+    )
+
+    st.altair_chart(cpm_line.interactive(), use_container_width=True)

@@ -193,7 +193,8 @@ f = {'ctr':'{:.2f}',
      'frequency':'{:.2f}',
      'video_25' :'{:.0f}',
      'video_50' :'{:.0f}',
-     'video_75' :'{:.0f}'}
+     'video_75' :'{:.0f}',
+     'purchase' :'{:.0f}'}
 df_view.format(f)
 
 st.write(df_view.to_html(escape=False, index=False), unsafe_allow_html=True, use_container_width=True)

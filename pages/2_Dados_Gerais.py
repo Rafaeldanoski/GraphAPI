@@ -6,7 +6,8 @@ import altair as alt
 
 ############## DATASET #######################
 df = pd.read_csv('ads_full.csv', sep=';')
-df['yearmonth'] = (df['year'].map(str) + df['month'].map(str)).map(int)
+
+df['yearmonth'] = [(str(df['year'][x]) + format(df['month'][x], '02d')) for x in range(len(df))]
 
 ############## DASH ##########################
 st.set_page_config(page_title="Dados Gerais",layout="wide",page_icon="report.ico")
