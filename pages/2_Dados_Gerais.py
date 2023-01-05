@@ -81,6 +81,17 @@ col4.metric(label="Lucro", value=(df_filter['purchase_value'].sum() - df_filter[
 col5.metric(label="ROAS", value=(df_filter['purchase_value'].sum()/df_filter['spend'].sum()).round(2))
 
 st.write("""
+ Vendas
+""")
+
+sales_line = alt.Chart(df_filter).mark_line(color='red').encode(
+    x=alt.X(field='date_start'),
+    y=alt.Y(field='purchase', aggregate='sum'),
+).interactive()
+
+st.altair_chart(sales_line, use_container_width=True)
+
+st.write("""
  Spend X Tempo
 """)
 

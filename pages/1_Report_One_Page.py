@@ -55,14 +55,17 @@ agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
 agg.sort_values(by='ctr', ascending=False, inplace=True)
 
 with st.expander('INFORMAÇÕES DO PÚBLICO'):
-    st.write("##### - *Público personalizado:* "+str(df_ad_test['Público personalizado:'][0]))
-    st.write("##### - *Exceto Público personalizado:* "+str(df_ad_test['Exceto Público Personalizado:'][0]))
-    st.write("##### - *Idade:* "+str(df_ad_test['Idade:'][0]))
-    st.write("##### - *Posicionamentos:* "+str(df_ad_test['Posicionamentos:'][0]))
-    st.write("##### - *Gênero:* "+str(df_ad_test['Gênero:'][0]))
-    st.write("##### - *Pessoas que correspondem a:* "+str(df_ad_test['Pessoas que correspondem a:'][0]))
-    st.write("##### - *E também deve corresponder a:* "+str(df_ad_test['E também deve corresponder a:'][0]))
-    st.write("##### - *Excluir:* "+str(df_ad_test['Excluir:'][0]))
+    try:
+        st.write("##### - *Público personalizado:* "+str(df_ad_test['Público personalizado:'][0]))
+        st.write("##### - *Exceto Público personalizado:* "+str(df_ad_test['Exceto Público Personalizado:'][0]))
+        st.write("##### - *Idade:* "+str(df_ad_test['Idade:'][0]))
+        st.write("##### - *Posicionamentos:* "+str(df_ad_test['Posicionamentos:'][0]))
+        st.write("##### - *Gênero:* "+str(df_ad_test['Gênero:'][0]))
+        st.write("##### - *Pessoas que correspondem a:* "+str(df_ad_test['Pessoas que correspondem a:'][0]))
+        st.write("##### - *E também deve corresponder a:* "+str(df_ad_test['E também deve corresponder a:'][0]))
+        st.write("##### - *Excluir:* "+str(df_ad_test['Excluir:'][0]))
+    except:
+        pass
 
 best = ['', 0]
 for i in range(len(agg)):
