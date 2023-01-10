@@ -42,7 +42,8 @@ st.write("""
 ### Conjunto de Anúncio: 02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%
 """)
 
-adset_test = ['02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%','02 -  [Etapa 1: Teste de criativo] - Interesses em trader']
+adset_test = ['02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%','02 -  [Etapa 1: Teste de criativo] - Interesses em trader',
+              '02 - [Etapa 1: Criativo] - Semelhantes a compradores 3%']
 df_ad_test = df_filter[df_filter['adset_name'].isin(adset_test)
                ]
 
@@ -55,7 +56,6 @@ agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
 agg.sort_values(by='ctr', ascending=False, inplace=True)
 
 with st.expander('INFORMAÇÕES DO PÚBLICO'):
-    try:
         st.write("##### - *Público personalizado:* "+str(df_ad_test['Público personalizado:'][0]))
         st.write("##### - *Exceto Público personalizado:* "+str(df_ad_test['Exceto Público Personalizado:'][0]))
         st.write("##### - *Idade:* "+str(df_ad_test['Idade:'][0]))
@@ -64,8 +64,6 @@ with st.expander('INFORMAÇÕES DO PÚBLICO'):
         st.write("##### - *Pessoas que correspondem a:* "+str(df_ad_test['Pessoas que correspondem a:'][0]))
         st.write("##### - *E também deve corresponder a:* "+str(df_ad_test['E também deve corresponder a:'][0]))
         st.write("##### - *Excluir:* "+str(df_ad_test['Excluir:'][0]))
-    except:
-        pass
 
 best = ['', 0]
 for i in range(len(agg)):
@@ -83,7 +81,6 @@ for i in range(len(agg)):
     else:
         st.write(f"#### - 🚫 [{name}]({link}) --------> Pausar veiculação - CTR: " + str(round(agg['ctr'][i],2)))
 
-
 ############ ETAPA 2 ######################
 
 st.markdown("<h1 style='text-align: center;'>ETAPA 2</h1>", unsafe_allow_html=True)
@@ -92,14 +89,15 @@ import re
 df_filter['etapa'] = ""
 for i in range(len(df_filter['adset_name'])):
     a_string = df_filter['adset_name'][i]
-    result = re.findall(r"\[([][A-Za-z0-9_: ]+)\]", a_string)
+    result = re.findall(r"\[([][A-Za-z0-9_ú: ]+)\]", a_string)
     try:
         df_filter['etapa'][i] = result[0]
     except:
         df_filter['etapa'][i] = result
 
-df_pub_test = df_filter[(df_filter['etapa'] == 'Etapa 2: Teste de publico')
-               ]            
+df_pub_test = df_filter[(df_filter['etapa'] == 'Etapa 2: Teste de publico') | (df_filter['etapa'] == 'Etapa 2: Público')
+               ]     
+   
 df_pub_test.reset_index(drop=True, inplace=True)
 
 agg_pub_test = df_pub_test.groupby(['name','adset_name']).agg({'name':'last','adset_name':'last','insta_link':'last','clicks':'sum', 'impressions':'sum', 'spend':'sum'})
