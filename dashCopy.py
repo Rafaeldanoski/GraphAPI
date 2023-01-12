@@ -101,15 +101,17 @@ df_filter = df[(df['product'].isin(product))
             ]
             
 
-agg_full = df_filter.groupby(['product','kind','adset_name']).agg({'date_start':'nunique','clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
-                                     'purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
+agg_full = df_filter.groupby(['product','kind','adset_name']).agg({'date_start':'nunique','clicks':'sum','link_clicks':'sum' ,'impressions':'sum', 'reach':'sum','spend':'sum', 
+                                                                   'purchase_value':'sum','purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
 
 agg_full.rename(columns={'date_start':'dias'}, inplace=True)
 agg_full['frequency'] = agg_full['impressions'] / agg_full['reach']
-agg_full['ctr'] = agg_full['clicks'] / agg_full['impressions'] * 100
+agg_full['ctr_total'] = agg_full['clicks'] / agg_full['impressions'] * 100
+agg_full['ctr'] = agg_full['link_clicks'] / agg_full['impressions'] * 100
 agg_full['cpm'] = agg_full['spend'] / agg_full['impressions'] * 1000
 agg_full['roas'] = agg_full['purchase_value'] / agg_full['spend']
-agg_full['cpc'] = agg_full['spend'] / agg_full['clicks']
+agg_full['cpc_total'] = agg_full['spend'] / agg_full['clicks']
+agg_full['cpc'] = agg_full['spend'] / agg_full['link_clicks']
 agg_full['cpa'] = agg_full['spend'] / agg_full['purchase']
 #agg_full['score'] = agg_full['ctr'] * agg_full['clicks']
 #agg_full['ctr_delta'] = ((agg_full['ctr'] / agg_full['ctr_acc']) - 1) * 100
@@ -124,7 +126,7 @@ col_classify, col_asc, col_empty2, col_empty3 = st.columns(4)
 with col_classify:
     classify = st.selectbox(
         'CLASSIFICADOR',
-        ('ctr', 'cpm', 'cpc', 'spend','clicks','impressions','purchase'))
+        ('ctr', 'ctr_total', 'cpm', 'cpc_total', 'cpc', 'spend','clicks','link_clicks','impressions','purchase'))
 
 with col_asc:
     asc = st.selectbox(
@@ -138,15 +140,17 @@ else:
 
 
 
-agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','clicks':'sum', 'impressions':'sum', 'reach':'sum','spend':'sum', 'purchase_value':'sum', 
-                                     'purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
+agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','clicks':'sum','link_clicks':'sum','impressions':'sum', 
+                                     'reach':'sum','spend':'sum', 'purchase_value':'sum', 'purchase':'sum','ctr_acc':'first','video_25':'sum','video_50':'sum','video_75':'sum'})
 
 agg.rename(columns={'date_start':'dias', 'insta_link':'Anúncio', 'thumb_link':''}, inplace=True)
 agg['frequency'] = agg['impressions'] / agg['reach']
-agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
+agg['ctr_total'] = agg['clicks'] / agg['impressions'] * 100
+agg['ctr'] = agg['link_clicks'] / agg['impressions'] * 100
 agg['cpm'] = agg['spend'] / agg['impressions'] * 1000
 agg['roas'] = agg['purchase_value'] / agg['spend']
-agg['cpc'] = agg['spend'] / agg['clicks']
+agg['cpc_total'] = agg['spend'] / agg['clicks']
+agg['cpc'] = agg['spend'] / agg['link_clicks']
 agg['cpa'] = agg['spend'] / agg['purchase']
 #agg['score'] = agg['ctr'] * agg['clicks']
 #agg['ctr_delta'] = ((agg['ctr'] / agg['ctr_acc']) - 1) * 100
@@ -183,8 +187,10 @@ df_view.applymap(color_negative3, color='red',
                               subset=['cpm']).hide_index()
 
 f = {'ctr':'{:.2f}',
+     'ctr_total':'{:.2f}',
      'cpm':'{:.2f}',
      'cpc':'{:.2f}',
+     'cpc_total':'{:.2f}',
      'roas':'{:.2f}',
      'cpa':'{:.2f}',
      'score':'{:.2f}',
@@ -194,7 +200,8 @@ f = {'ctr':'{:.2f}',
      'video_25' :'{:.0f}',
      'video_50' :'{:.0f}',
      'video_75' :'{:.0f}',
-     'purchase' :'{:.0f}'}
+     'purchase' :'{:.0f}',
+     'link_clicks' :'{:.0f}'}
 df_view.format(f)
 
 st.write(df_view.to_html(escape=False, index=False), unsafe_allow_html=True, use_container_width=True)
@@ -273,7 +280,7 @@ st.write("""
 
 ctr_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
-    y='ctr_acc',
+    y='ctr_link_acc',
     color='adset_name:N',
     strokeDash='month'
 )
@@ -320,12 +327,12 @@ frequency_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="b
 st.altair_chart(frequency_line, use_container_width=True)
 
 st.write("""
- Clicks X Tempo
+ Clicks no link X Tempo
 """)
 
 clicks_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
-    y=alt.Y('clicks_acc'),
+    y=alt.Y('link_clicks_acc'),
     color='adset_name:N',
     strokeDash='month'
 ).interactive()
@@ -365,8 +372,7 @@ st.write("""
 
 scatter = alt.Chart(df_graph).mark_point().encode(
     x='cpm_acc',
-    y='ctr_acc'
+    y='ctr_link_acc'
 ).interactive()
 
 st.altair_chart(scatter, use_container_width=False)
-

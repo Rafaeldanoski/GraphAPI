@@ -49,9 +49,9 @@ df_ad_test = df_filter[df_filter['adset_name'].isin(adset_test)
 
 df_ad_test.reset_index(drop=True, inplace=True)
 
-agg = df_ad_test.groupby(['name']).agg({'product':'last','insta_link':'last','clicks':'sum', 'impressions':'sum', 'spend':'sum'})
+agg = df_ad_test.groupby(['name']).agg({'product':'last','insta_link':'last','link_clicks':'sum', 'impressions':'sum', 'spend':'sum'})
 
-agg['ctr'] = agg['clicks'] / agg['impressions'] * 100
+agg['ctr'] = agg['link_clicks'] / agg['impressions'] * 100
 
 agg.sort_values(by='ctr', ascending=False, inplace=True)
 
@@ -100,9 +100,9 @@ df_pub_test = df_filter[(df_filter['etapa'] == 'Etapa 2: Teste de publico') | (d
    
 df_pub_test.reset_index(drop=True, inplace=True)
 
-agg_pub_test = df_pub_test.groupby(['name','adset_name']).agg({'name':'last','adset_name':'last','insta_link':'last','clicks':'sum', 'impressions':'sum', 'spend':'sum'})
+agg_pub_test = df_pub_test.groupby(['name','adset_name']).agg({'name':'last','adset_name':'last','insta_link':'last','link_clicks':'sum', 'impressions':'sum', 'spend':'sum'})
 
-agg_pub_test['ctr'] = agg_pub_test['clicks'] / agg_pub_test['impressions'] * 100
+agg_pub_test['ctr'] = agg_pub_test['link_clicks'] / agg_pub_test['impressions'] * 100
 
 agg_pub_test.sort_values(by='ctr', ascending=False, inplace=True)
 
@@ -182,7 +182,7 @@ for g in range(len(df_ad_prod['name'].unique())):
 
     ctr_line = alt.Chart(df_line).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
-    y='ctr_acc',
+    y='ctr_link_acc',
     strokeDash='month'
     )
 
@@ -194,7 +194,7 @@ for g in range(len(df_ad_prod['name'].unique())):
 
     cpc_line = alt.Chart(df_line).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
     x='date_start',
-    y='cpc_acc',
+    y='cpc_link_acc',
     strokeDash='month'
     )
 
