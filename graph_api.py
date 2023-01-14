@@ -3,6 +3,8 @@ import json
 import pandas as pd
 import copy
 import numpy as np
+from datetime import datetime, timedelta
+import time
 
 
 # https://developers.facebook.com/tools/explorer?method=GET&path=act_3120164588217844%2Fadsets%3Ffields%3Dname%2Cstatus%2Cid%2C&version=v13.0
@@ -229,9 +231,178 @@ class GraphAPI:
     # ========================================
     # Function analysis
 
+    def updateAdsData(self):
+        fb_api = open("tokens/fb_token").read()
+        ad_acc = "3120164588217844"
+        p = GraphAPI(ad_acc,fb_api)
+        df = pd.read_csv('ads_full.csv', sep=';')
+        df_ads = pd.DataFrame()
+
+        d = (datetime.today() - pd.to_datetime(df['date_start'].max())).days
+        if d >= 2:
+            for i in range(d-1):
+                while True:
+                    try:
+                        df_temp = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='GREATER_THAN', impressions=20000, effective_status=['CAMPAIGN_PAUSED'])
+                        df_ads = df_ads.append(df_temp)
+                        print(i)
+                        break
+                    except:
+                        time.sleep(30)
+                        print('erro',i)
+                        
+            for i in range(d-1):
+                while True:
+                    try:
+                        df_temp2 = p.get_ads_status(since_until=[(datetime.today()  - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='LESS_THAN_OR_EQUAL', impressions=20000, effective_status=['CAMPAIGN_PAUSED'])
+                        df_ads = df_ads.append(df_temp2)
+                        print(i)
+                        break
+                    except:                        
+                        time.sleep(30)
+                        print('erro',i)
+                        
+            for i in range(d-1):
+
+                while True:
+                    try:
+                        df_temp3 = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='GREATER_THAN', impressions=2500, effective_status=['PAUSED','ACTIVE','ADSET_PAUSED'])
+                        df_ads = df_ads.append(df_temp3)
+                        print(i)
+                        break
+                    except:
+                        time.sleep(30)
+                        print('erro',i)
+                        
+            for i in range(d-1):
+                while True:
+                    try:
+                        df_temp3 = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='LESS_THAN_OR_EQUAL', impressions=2500, effective_status=['PAUSED','ACTIVE','ADSET_PAUSED'])
+                        df_ads = df_ads.append(df_temp3)
+                        print(i)
+                        break
+                    except:
+                        time.sleep(30)
+                        print('erro',i)
+                        
+        df_ads = df_ads[df_ads['insights'].notna()].reset_index(drop=True)
+
+        df_ads_data_insights = pd.DataFrame()
+
+        for i in range(len(df_ads)):
+            df4 = pd.DataFrame({'name':None}, index=[0])
+            for j in range(len(df_ads['insights'][i]['data'])):
+                df4['name'] = df_ads['name'][i]
+                df4['status'] = df_ads['status'][i]
+                df4['product'] = df_ads['product'][i]
+                df4['kind'] = df_ads['kind'][i]
+                df4['objective'] = df_ads['objective'][i]
+                df4['adset_name'] = df_ads['adset_name'][i]
+                df4['insta_link'] = df_ads['insta_link'][i]
+                df4['thumb_link'] = df_ads['thumb_link'][i]
+                df4['date_start'] = df_ads['insights'][i]['data'][j]['date_start']
+                df4['date_stop'] = df_ads['insights'][i]['data'][j]['date_stop']
+                df4['spend'] = float(df_ads['insights'][i]['data'][j]['spend'])
+                df4['clicks'] = int(df_ads['insights'][i]['data'][j]['clicks'])
+                df4['link_clicks'] = df_ads['insights'][i]['data'][j].get('inline_link_clicks') if df_ads['insights'][i]['data'][j].get('inline_link_clicks') is None else float(df_ads['insights'][i]['data'][j].get('inline_link_clicks'))
+                df4['impressions'] = int(df_ads['insights'][i]['data'][j]['impressions'])
+                df4['frequency'] = float(df_ads['insights'][i]['data'][j]['frequency'])
+                df4['reach'] = int(df_ads['insights'][i]['data'][j]['reach'])
+                df4['ctr'] = df_ads['insights'][i]['data'][j].get('ctr') if df_ads['insights'][i]['data'][j].get('ctr') is None else float(df_ads['insights'][i]['data'][j].get('ctr'))
+                df4['cpc'] = df_ads['insights'][i]['data'][j].get('cpc') if df_ads['insights'][i]['data'][j].get('cpc') is None else float(df_ads['insights'][i]['data'][j].get('cpc'))
+                df4['cpm'] = df_ads['insights'][i]['data'][j].get('cpm') if df_ads['insights'][i]['data'][j].get('cpm') is None else float(df_ads['insights'][i]['data'][j].get('cpm'))
+                df4['video_25'] = df_ads['insights'][i]['data'][j].get('video_p25_watched_actions') if df_ads['insights'][i]['data'][j].get('video_p25_watched_actions') is None else int(df_ads['insights'][i]['data'][j]['video_p25_watched_actions'][0]['value'])
+                df4['video_50'] = df_ads['insights'][i]['data'][j].get('video_p50_watched_actions') if df_ads['insights'][i]['data'][j].get('video_p50_watched_actions') is None else int(df_ads['insights'][i]['data'][j]['video_p50_watched_actions'][0]['value'])
+                df4['video_75'] = df_ads['insights'][i]['data'][j].get('video_p75_watched_actions') if df_ads['insights'][i]['data'][j].get('video_p75_watched_actions') is None else int(df_ads['insights'][i]['data'][j]['video_p75_watched_actions'][0]['value'])
+                
+                #purchase
+                try:
+                    for n in range(len(df_ads['insights'][i]['data'][j]['actions'])):
+                        if df_ads['insights'][i]['data'][j]['actions'][n].get('action_type') == 'purchase':
+                            df4['purchase'] = int(df_ads['insights'][i]['data'][j]['actions'][n].get('value'))
+                            df4['purchase_roas'] = float(df_ads['insights'][i]['data'][j]['purchase_roas'][0]['value'])
+                            break
+                except:
+                    df4['purchase'] = 0
+                    df4['purchase_roas'] = 0
+                
+                #publics
+                for k in range(len(df_ads['targetingsentencelines'][i]['targetingsentencelines'])):
+                    try:
+                        col = df_ads['targetingsentencelines'][i]['targetingsentencelines'][k]['content']
+                        row = df_ads['targetingsentencelines'][i]['targetingsentencelines'][k]['children']
+                        df4[col] = row
+                    except:
+                        df4[col] = 0
+                        
+                
+                df_ads_data_insights = df_ads_data_insights.append(df4)
+                
+        df_ads_data_insights.reset_index(drop=True, inplace=True)
+
+        for i in range(len(df_ads_data_insights['Posicionamentos:'])):
+            df_ads_data_insights['Posicionamentos:'][i] = df_ads_data_insights['Posicionamentos:'][i].split(',')
+
+        df_ads_data_insights['date_start'] = pd.to_datetime(df_ads_data_insights['date_start'])
+        df_ads_data_insights = df_ads_data_insights.sort_values(by='date_start')
+        df_ads_data_insights['year'] = df_ads_data_insights['date_start'].dt.year
+        df_ads_data_insights['month'] = df_ads_data_insights['date_start'].dt.month
+        df_ads_data_insights['day'] = df_ads_data_insights['date_start'].dt.day
+
+        #valor de compra
+        df_ads_data_insights['purchase_value'] = df_ads_data_insights['purchase_roas'] * df_ads_data_insights['spend']
+        errors = df_ads_data_insights.query("purchase_value >= 8999").index
+        df_ads_data_insights.drop(errors, inplace=True)
+        df_ads_data_insights.reset_index(inplace=True, drop=True)
+
+        df_temperatura = pd.read_csv('adsets_temp.csv', sep=',')
+        df_ads_data_insights = pd.merge(df_ads_data_insights, df_temperatura, how='left',left_on=['adset_name'],right_on=['ADSET'])
+
+        if len(df_ads_data_insights[df_ads_data_insights['TEMPERATURA'].isna()]['adset_name'].unique()) > 0:
+            print(df_ads_data_insights[df_ads_data_insights['TEMPERATURA'].isna()]['adset_name'].unique())
+
+        df = df.append(df_ads_data_insights)
+        df.reset_index(drop=True, inplace=True)
+        df['date_start'] = pd.to_datetime(df['date_start'])
+        df['date_stop'] = pd.to_datetime(df['date_stop'])
+
+        #dados acumulados por campanha
+        df['purchase_acc'] = df.groupby(['name','adset_name'])['purchase'].cumsum()
+        df['spend_acc'] = df.groupby(['name','adset_name'])['spend'].cumsum()
+        df['cpa'] = df['spend'] / df['purchase']
+        df['cpa_acc'] = df['spend_acc'] / df['purchase_acc']
+
+        df['purchase_value_acc'] = df.groupby(['name','adset_name'])['purchase_value'].cumsum()
+        df['purchase_roas_acc'] = df['purchase_value_acc'] / df['spend_acc']
+
+        df['clicks_acc'] = df.groupby(['name','adset_name'])['clicks'].cumsum()
+        df['link_clicks_acc'] = df.groupby(['name','adset_name'])['link_clicks'].cumsum()
+        df['impressions_acc'] = df.groupby(['name','adset_name'])['impressions'].cumsum()
+        df['reach_acc'] = df.groupby(['name','adset_name'])['reach'].cumsum()
+        df['frequency_acc'] = df['impressions_acc'] / df['reach_acc']
+        df['cpc_acc'] = df['spend_acc'] / df['clicks_acc']
+        df['cpc_link_acc'] = df['spend_acc'] / df['link_clicks_acc']
+        df['cpm_acc'] = (df['spend_acc'] / df['impressions_acc']) * 1000
+        df['ctr_acc'] = df['clicks_acc'] / df['impressions_acc'] * 100
+        df['ctr_link_acc'] = df['link_clicks_acc'] / df['impressions_acc'] * 100
+
+        df.replace([np.inf, -np.inf], 0, inplace=True)
+
+        df['video_25_acc'] = df.groupby(['name','adset_name'])['video_25'].cumsum()
+        df['video_50_acc'] = df.groupby(['name','adset_name'])['video_50'].cumsum()
+        df['video_75_acc'] = df.groupby(['name','adset_name'])['video_75'].cumsum()
+
+        df.to_csv('ads_full.csv', sep=';', index=False, decimal='.')
 
 
+#fb_api = open("tokens/fb_token").read()
+#ad_acc = "3120164588217844"
+#p = GraphAPI(ad_acc,fb_api)
+#p.get_ads_status(since_until=[(datetime.today() - timedelta(days=0+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=0+1)).strftime("%Y-%m-%d")], increment=1, process=0, filter='GREATER_THAN', impressions=20000, effective_status=['CAMPAIGN_PAUSED'])
 
+#p.updateAdsData()
+
+'''
 # act_3120164588217844/campaigns?fields=name,status, adsets
 if __name__ == "__main__":
     fb_api = open("tokens/fb_token").read()
@@ -255,3 +426,4 @@ if __name__ == "__main__":
 
     self.get_insights(ad_acc)
     self.get_campaigns_status(ad_acc)["data"]
+'''
