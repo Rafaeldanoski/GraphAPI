@@ -13,11 +13,13 @@ fb_api = open("tokens/fb_token").read()
 ad_acc = "3120164588217844"
 graph = GraphAPI(ad_acc, fb_api)
 
-schedule.every().day.at("09:45").do(graph.updateAdsData)
+graph.updateAdsData()
 
-while True:
-    schedule.run_pending()
-    time.sleep(60)
+#schedule.every().day.at("09:45").do(graph.updateAdsData)
+
+# while True:
+#     schedule.run_pending()
+#     time.sleep(60)
 
 df = pd.read_csv('ads_full.csv', sep=';')
 
