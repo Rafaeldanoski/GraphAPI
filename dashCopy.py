@@ -15,9 +15,9 @@ graph = GraphAPI(ad_acc, fb_api)
 
 schedule.every().day.at("09:45").do(graph.updateAdsData)
 
-while(1):
+while True:
     schedule.run_pending()
-    time(1)
+    time.sleep(1)
 
 df = pd.read_csv('ads_full.csv', sep=';')
 
