@@ -4,14 +4,14 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import altair as alt
-from graph_api import *
-import schedule
-import time
+# from graph_api import *
+# import schedule
+# import time
 
 ############## DATASET #######################
-fb_api = open("tokens/fb_token").read()
-ad_acc = "3120164588217844"
-graph = GraphAPI(ad_acc, fb_api)
+# fb_api = open("tokens/fb_token").read()
+# ad_acc = "3120164588217844"
+# graph = GraphAPI(ad_acc, fb_api)
 
 # try:
 #     graph.updateAdsData()
