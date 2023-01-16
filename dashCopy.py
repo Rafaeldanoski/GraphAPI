@@ -17,7 +17,7 @@ schedule.every().day.at("09:45").do(graph.updateAdsData)
 
 while True:
     schedule.run_pending()
-    time.sleep(1)
+    time.sleep(60)
 
 df = pd.read_csv('ads_full.csv', sep=';')
 
