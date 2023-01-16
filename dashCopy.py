@@ -4,8 +4,19 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import altair as alt
+from graph_api import *
+import schedule
+import time
 
 ############## DATASET #######################
+fb_api = open("tokens/fb_token").read()
+ad_acc = "3120164588217844"
+graph = GraphAPI(ad_acc, fb_api)
+
+schedule.every().day.at("09:10").do(graph.updateAdsData)
+
+schedule.run_pending()
+
 df = pd.read_csv('ads_full.csv', sep=';')
 
 ############## DASH ##########################
