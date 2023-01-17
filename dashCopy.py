@@ -4,9 +4,6 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import altair as alt
-# from graph_api import *
-# import schedule
-# import time
 
 ############## DATASET #######################
 df = pd.read_csv('ads_full.csv', sep=';')
