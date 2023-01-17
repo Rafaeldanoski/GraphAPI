@@ -4,6 +4,8 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import altair as alt
+import warnings
+warnings.filterwarnings("ignore")
 
 ############## DATASET #######################
 df = pd.read_csv('ads_full.csv', sep=';')
