@@ -9,21 +9,6 @@ import altair as alt
 # import time
 
 ############## DATASET #######################
-# fb_api = open("tokens/fb_token").read()
-# ad_acc = "3120164588217844"
-# graph = GraphAPI(ad_acc, fb_api)
-
-# try:
-#     graph.updateAdsData()
-# except:
-#     pass
-
-# schedule.every().day.at("09:54").do(graph.updateAdsData)
-
-# while True:
-#     schedule.run_pending()
-#     time.sleep(1)
-
 df = pd.read_csv('ads_full.csv', sep=';')
 
 ############## DASH ##########################
