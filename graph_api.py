@@ -5,6 +5,8 @@ import copy
 import numpy as np
 from datetime import datetime, timedelta
 import time
+from google.oauth2 import service_account
+from googleapiclient.discovery import build 
 
 
 # https://developers.facebook.com/tools/explorer?method=GET&path=act_3120164588217844%2Fadsets%3Ffields%3Dname%2Cstatus%2Cid%2C&version=v13.0
@@ -235,7 +237,9 @@ class GraphAPI:
         fb_api = open("tokens/fb_token").read()
         ad_acc = "3120164588217844"
         p = GraphAPI(ad_acc,fb_api)
-        df = pd.read_csv('ads_full.csv', sep=';')
+        #df = pd.read_csv('ads_full.csv', sep=';')
+        df = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vTBlGmOezNusSw2dRbZAT-ALjJXO0hMkSOlXBdfu76ZzkMIa2HIa62-29iL7yMNEhr-lqV6im8cKIqF/pub?output=csv')
+        df = df.fillna(0)
         df_ads = pd.DataFrame()
 
         d = (datetime.today() - pd.to_datetime(df['date_start'].max())).days
@@ -392,7 +396,31 @@ class GraphAPI:
         df['video_50_acc'] = df.groupby(['name','adset_name'])['video_50'].cumsum()
         df['video_75_acc'] = df.groupby(['name','adset_name'])['video_75'].cumsum()
 
-        df.to_csv('ads_full.csv', sep=';', index=False, decimal='.')
+        ####### SAVE TO GOOGLESHEETS ############
+        df['date_start'] = df['date_start'].astype(str)
+        df['date_stop'] = df['date_stop'].astype(str)
+        df['Posicionamentos:'] = df['Posicionamentos:'].astype(str)
+        df = df.fillna(0)
+
+        SCOPES = [
+                'https://www.googleapis.com/auth/spreadsheets',
+                'https://www.googleapis.com/auth/drive'
+                 ]
+        credentials = service_account.Credentials.from_service_account_file('proven-serenity-359322-92dc4655e013.json', scopes=SCOPES)
+        spreadsheet_service = build('sheets', 'v4', credentials=credentials)
+
+        data = [df.columns.tolist()]
+        [data.append(x) for x in df.values.tolist()]
+        spreadsheet_id = '1KLZmEEChTRUwBhnsyHwkK0hN9wmVvsJIdyVUowtcJOo'
+        range_name = 'Sheet1'
+        value_input_option = 'USER_ENTERED'
+        body = {
+        'values': data
+        }
+        result = spreadsheet_service.spreadsheets().values().update(spreadsheetId=spreadsheet_id, range=range_name,valueInputOption=value_input_option, body=body).execute()
+        print('{0} cells updated.'.format(result.get('updatedCells')))
+
+        #df.to_csv('ads_full.csv', sep=';', index=False, decimal='.')
 
 
 #fb_api = open("tokens/fb_token").read()

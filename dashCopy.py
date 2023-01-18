@@ -8,7 +8,16 @@ import warnings
 warnings.filterwarnings("ignore")
 
 ############## DATASET #######################
-df = pd.read_csv('ads_full.csv', sep=';')
+#df = pd.read_csv('ads_full.csv', sep=';')
+df = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vTBlGmOezNusSw2dRbZAT-ALjJXO0hMkSOlXBdfu76ZzkMIa2HIa62-29iL7yMNEhr-lqV6im8cKIqF/pub?output=csv')
+
+# d = (datetime.today() - pd.to_datetime(df['date_start'].max())).days
+# if d >= 2:
+#     from graph_api import *
+#     fb_api = open("tokens/fb_token").read()
+#     ad_acc = "3120164588217844"
+#     graph = GraphAPI(ad_acc, fb_api)
+#     graph.updateAdsData()
 
 ############## DASH ##########################
 st.set_page_config(page_title="DashCopy",layout="wide",page_icon="favicon.ico")

@@ -3,6 +3,8 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime, timedelta
 import altair as alt
+import warnings
+warnings.filterwarnings("ignore")
 
 ############## DATASET #######################
 url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQyxwQ2Ij7uvS1bMUAD-WWWhyWRofQDcI3_cAhBoGyY1f2t9b23C57Z6TZGIllOlZGq2895gL21n5oA/pub?output=csv'

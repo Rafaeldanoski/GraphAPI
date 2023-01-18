@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "proven-serenity-359322",
+  "private_key_id": "92dc4655e013f37fe151374cc23202daab7d05c0",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDenVIU2ofi4zeB\n1iRb+T3r+IFcvnL5NYUYuYDlzrr7MsUv1i3XTMnFIFIRF/0UmmTM02tf1MpXmPeu\n39hwQGi9Olb9Pq/R85rPTlx+/xQA02Zo7Yl/eJ1pNxqBJ11NVqUq+m6OPLLHeoKk\nuTPP5TlJNQWzbI7uHuYm9g+CSEyXn7VIE/pNE+dNbUqc+TcVxpAIajySwsoGe8ed\n6vW0XA12yKEY8LymfvvUVNC/+//2uhUpZDYE4KzQ6OcmMGXOWJyQ7WwV/x0RTAK3\nWwmdO/1i7SsCem6rFs3RVYv9SMc9B0cWUyqkvYpGG2GBMJ0ATdE1jE4c2PkSkQ8V\nqRbAaEOPAgMBAAECggEAAVmC0zg1SrLbS0uOZ4sDTRhHRdYBwcZeoDUVCvpN4pKp\nj2NaXnZ2DV6SIM28bbuMkOaskqV/nzhWMsE4rAril63FiT4wDV3PZSJcfTNJXm0/\nBF6BpDw0TXGqv3hgSxpotfH+vu4EnMupWcZQV2+pq+qeYOVvmGdSOI+VWHzdD1jt\nozUjXPKWhYeOLQQlHcC9L+HbSz+I83hoWKf1FjHsb/APEZ9cL6bEdqTyKesAV/wx\nF4HYbmKc89KTmWEW5QbFmAF9JsryKSpvrjXZphgRZdrBNTVBb6OZKDiD2iTFmz6n\n+SsuSNg8Z5VOCI5JL8E3Nha232uBXIJUFxd9LYEEAQKBgQD0KcHtEuNz317ahl8U\nNzIUhquRsU9kxOqxMvcogVXhOhs4AnJ0Cen2i18j+dF1av718onP2wyrNvoPt9kt\nEOLJIg4de7+XFr4ICY+7ml+NdwRKtDRXaHVEkpA6IVkjtcT0T1PIuFeyRrvXI318\nhMFTTdXZ5ElIziP8MJXiysZsQQKBgQDpaCElp8BBh1ldrgUBAJstyoWkJ8oIQmjU\ncaERZXy+y9Ihj8YjcymQZvpPAminjD65LhaSr5koaGkzYQLbdRWkHP5YutRir26B\n/msuQwsnYYCsyUAXivwVY334haDEKXPLKJ3NSiEsTU4tP21Hiy6pTmsYpP0lFxh/\n8IOQ9RP7zwKBgQDF9WEspIbTOIRAKnfF/SZWbAWInziem+UofAjVx17ot+K/m4RO\nPod5g/BES9SeHXzPzbAcXR49ZtqBie7D0g/9QOYu01k315GFFLN7SCM2oAtTwh05\nzRBe43GaH9WU1Vf1OKfWcldvzFeZi0W/gib4MoAzJBqis7eLTZ0Ifp03wQKBgQCN\nLQafmA+ZkxxipVcxfARgdhbPa6GvzTtLBE/ADfqeDPpUgnn+BzIkvaS5FWPns9Rc\nfZv5rWyeHElFYnAv/WnRkhfl41uDNUlKJ3D80mB0uWzzFedGVjKTXVJcd7b973Sy\ndSa9fREDkt6uT6bxlyXqEhyFE4ZqYMXY3Mk3bIVh0QKBgQDp2YGnTXdYygm6ycNP\nFNnOaWAUIZo8Pnsvb06QVKyAWaz/XLs1njlLvUDSjl5DcXtDS29OrTB2swaIDoyg\nOCvzTde1pqYjYUfIY0CBQi5+LL/o560IjnlW6XPpjoHX9hLy0tgUMI6WwnCGFSl7\nwcuHwKs3t6KQ8A/IuXkTARGMvQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "rdanoski@proven-serenity-359322.iam.gserviceaccount.com",
+  "client_id": "104199418970835501086",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rdanoski%40proven-serenity-359322.iam.gserviceaccount.com"
+}
