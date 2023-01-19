@@ -247,7 +247,7 @@ class GraphAPI:
             for i in range(d-1):
                 while True:
                     try:
-                        df_temp = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='GREATER_THAN', impressions=20000, effective_status=['CAMPAIGN_PAUSED'])
+                        df_temp = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='GREATER_THAN', impressions=10000, effective_status=['CAMPAIGN_PAUSED'])
                         df_ads = df_ads.append(df_temp)
                         print(i)
                         break
@@ -258,7 +258,7 @@ class GraphAPI:
             for i in range(d-1):
                 while True:
                     try:
-                        df_temp2 = p.get_ads_status(since_until=[(datetime.today()  - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='LESS_THAN_OR_EQUAL', impressions=20000, effective_status=['CAMPAIGN_PAUSED'])
+                        df_temp2 = p.get_ads_status(since_until=[(datetime.today()  - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='LESS_THAN_OR_EQUAL', impressions=10000, effective_status=['CAMPAIGN_PAUSED'])
                         df_ads = df_ads.append(df_temp2)
                         print(i)
                         break
@@ -270,7 +270,7 @@ class GraphAPI:
 
                 while True:
                     try:
-                        df_temp3 = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='GREATER_THAN', impressions=2500, effective_status=['PAUSED','ACTIVE','ADSET_PAUSED'])
+                        df_temp3 = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='GREATER_THAN', impressions=2000, effective_status=['PAUSED','ACTIVE','ADSET_PAUSED'])
                         df_ads = df_ads.append(df_temp3)
                         print(i)
                         break
@@ -281,7 +281,7 @@ class GraphAPI:
             for i in range(d-1):
                 while True:
                     try:
-                        df_temp3 = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='LESS_THAN_OR_EQUAL', impressions=2500, effective_status=['PAUSED','ACTIVE','ADSET_PAUSED'])
+                        df_temp3 = p.get_ads_status(since_until=[(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d"),(datetime.today() - timedelta(days=i+1)).strftime("%Y-%m-%d")], increment=1, process=1, filter='LESS_THAN_OR_EQUAL', impressions=2000, effective_status=['PAUSED','ACTIVE','ADSET_PAUSED'])
                         df_ads = df_ads.append(df_temp3)
                         print(i)
                         break

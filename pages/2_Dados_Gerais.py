@@ -1,6 +1,7 @@
 ############## IMPORTS #######################
 import streamlit as st
 import pandas as pd
+import numpy as np
 from datetime import datetime, timedelta
 import altair as alt
 import warnings
@@ -60,6 +61,7 @@ with col_last_month:
     if last_month:
         start_date, end_date = datetime.today()-timedelta(30), datetime.today()
 
+
 def set_full_products():
     st.session_state['multiselect_product'] = list(df['product'].unique())
 
@@ -81,34 +83,100 @@ df_graph = df[(df['product'].isin(product))
 
 col1, col2, col3, col4, col5 = st.columns(5)
 col1.metric(label="Gasto", value=df_filter['spend'].sum().round(2))
+col1.metric(label="CTR", value=(df_filter['link_clicks'].sum()/df_filter['impressions'].sum()).round(4)*100)
+
 col2.metric(label="Nº Vendas", value=df_filter['purchase'].sum().round(2))
+col2.metric(label="CPC", value=(df_filter['spend'].sum()/df_filter['link_clicks'].sum()).round(2))
+
 col3.metric(label="R$ Vendas", value=df_filter['purchase_value'].sum().round(2))
+col3.metric(label="CPM", value=(df_filter['spend'].sum()/df_filter['impressions'].sum()).round(2)*1000)
+
 col4.metric(label="Lucro", value=(df_filter['purchase_value'].sum() - df_filter['spend'].sum()).round(2))
+col4.metric(label="Frequência", value=(df_filter['impressions'].sum()/df_filter['reach'].sum()).round(2))
+
 col5.metric(label="ROAS", value=(df_filter['purchase_value'].sum()/df_filter['spend'].sum()).round(2))
+col5.metric(label="CPA", value=(df_filter['spend'].sum()/df_filter['purchase'].sum()).round(2))
 
-st.write("""
- Vendas
-""")
+tab1, tab2, tab3, tab4, tab5 = st.tabs(["Vendas", "CTR", "CPC", "CPM", "CPA"])
 
-sales_line = alt.Chart(df_filter).mark_line(color='red').encode(
-    x=alt.X(field='date_start'),
-    y=alt.Y(field='purchase', aggregate='sum'),
-).interactive()
+with tab1:
+    st.write("""
+    Vendas
+    """)
 
-st.altair_chart(sales_line, use_container_width=True)
+    sales_line = alt.Chart(df_filter).mark_line(color='red').encode(
+        x=alt.X(field='date_start'),
+        y=alt.Y(field='purchase', aggregate='sum'),
+    ).interactive()
 
-st.write("""
- Spend X Tempo
-""")
+    st.altair_chart(sales_line, use_container_width=True)
 
-spend_bar = alt.Chart(df_graph).mark_bar().encode(
-    x=alt.X(field='yearmonth'),
-    y=alt.Y(field='spend', aggregate='sum'),
-).interactive()
+    st.write("""
+    Spend X Tempo
+    """)
 
-purchase_line = alt.Chart(df_graph).mark_line(color='red').encode(
-    x=alt.X(field='yearmonth'),
-    y=alt.Y(field='purchase_value', aggregate='sum'),
-).interactive()
+    spend_bar = alt.Chart(df_graph).mark_bar().encode(
+        x=alt.X(field='yearmonth'),
+        y=alt.Y(field='spend', aggregate='sum'),
+    ).interactive()
 
-st.altair_chart(spend_bar + purchase_line, use_container_width=True)
+    purchase_line = alt.Chart(df_graph).mark_line(color='red').encode(
+        x=alt.X(field='yearmonth'),
+        y=alt.Y(field='purchase_value', aggregate='sum'),
+    ).interactive()
+
+    st.altair_chart(spend_bar + purchase_line, use_container_width=True)
+
+with tab2:
+    df_graph['ctr_link'] = (df_graph['link_clicks'] / df_graph['impressions']) * 100
+    st.write("""
+    CTR
+    """)
+
+    ctr_line = alt.Chart(df_graph).mark_line(color='red').encode(
+        x=alt.X(field='yearmonth'),
+        y=alt.Y(field='ctr_link', aggregate='mean'),
+    ).interactive()
+
+    st.altair_chart(ctr_line, use_container_width=True)
+
+with tab3:
+    df_graph['cpc_link'] = (df_graph['spend'] / df_graph['link_clicks'])
+    df_graph.replace([np.inf, -np.inf], 0, inplace=True)
+    st.write("""
+    CPC
+    """)
+
+    cpc_line = alt.Chart(df_graph).mark_line(color='red').encode(
+        x=alt.X(field='yearmonth'),
+        y=alt.Y(field='cpc_link', aggregate='mean'),
+    ).interactive()
+
+    st.altair_chart(cpc_line, use_container_width=True)
+
+with tab4:
+    st.write("""
+    CPM
+    """)
+
+    cpc_line = alt.Chart(df_graph).mark_line(color='red').encode(
+        x=alt.X(field='yearmonth'),
+        y=alt.Y(field='cpm', aggregate='mean'),
+    ).interactive()
+
+    st.altair_chart(cpc_line, use_container_width=True)
+
+with tab5:
+    df_graph['cpa_acc'] = (df_graph.groupby(['yearmonth'])['spend'].cumsum() / df_graph.groupby(['yearmonth'])['purchase'].cumsum()).round(2)
+    df_graph.replace([np.inf, -np.inf], 0, inplace=True)
+    agg_graph = df_graph.groupby(['yearmonth']).agg({'cpa_acc':'last', 'yearmonth':'last'})
+    st.write("""
+    CPA
+    """)
+
+    cpa_line = alt.Chart(agg_graph).mark_line(color='red').encode(
+        x=alt.X(field='yearmonth'),
+        y=alt.Y(field='cpa_acc',sort='-y'),
+    ).interactive()
+
+    st.altair_chart(cpa_line, use_container_width=True)
