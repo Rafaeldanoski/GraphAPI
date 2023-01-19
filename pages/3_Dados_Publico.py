@@ -6,16 +6,19 @@ import altair as alt
 import warnings
 warnings.filterwarnings("ignore")
 
-############## DATASET #######################
-url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQyxwQ2Ij7uvS1bMUAD-WWWhyWRofQDcI3_cAhBoGyY1f2t9b23C57Z6TZGIllOlZGq2895gL21n5oA/pub?output=csv'
-df = pd.read_csv(url)
-
 ############## DASH ##########################
 st.set_page_config(page_title="Dados Público",layout="wide",page_icon="publico.ico")
 
 st.sidebar.success("Selecione uma página acima")
 
 st.markdown("<h1 style='text-align: center;'>DADOS DE PÚBLICO</h1>", unsafe_allow_html=True)
+
+############## DATASET #######################
+@st.cache(allow_output_mutation=True)
+def load_data(url):
+    return pd.read_csv(url)
+
+df = load_data('https://docs.google.com/spreadsheets/d/e/2PACX-1vQyxwQ2Ij7uvS1bMUAD-WWWhyWRofQDcI3_cAhBoGyY1f2t9b23C57Z6TZGIllOlZGq2895gL21n5oA/pub?output=csv')
 
 ############## GRÁFICOS ##########################
 age_hist = alt.Chart(df).mark_bar().encode(

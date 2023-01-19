@@ -6,18 +6,21 @@ import altair as alt
 import warnings
 warnings.filterwarnings("ignore")
 
-############## DATASET #######################
-#df = pd.read_csv('ads_full.csv', sep=';')
-df = pd.read_csv('https://docs.google.com/spreadsheets/d/e/2PACX-1vTBlGmOezNusSw2dRbZAT-ALjJXO0hMkSOlXBdfu76ZzkMIa2HIa62-29iL7yMNEhr-lqV6im8cKIqF/pub?output=csv')
-
-df['yearmonth'] = [(str(df['year'][x]) + format(df['month'][x], '02d')) for x in range(len(df))]
-
 ############## DASH ##########################
 st.set_page_config(page_title="Dados Gerais",layout="wide",page_icon="report.ico")
 
 st.sidebar.success("Selecione uma página acima")
 
 st.markdown("<h1 style='text-align: center;'>DADOS GERAIS</h1>", unsafe_allow_html=True)
+
+############## DATASET #######################
+@st.cache(allow_output_mutation=True)
+def load_data(url):
+    return pd.read_csv(url)
+
+df = load_data('https://docs.google.com/spreadsheets/d/e/2PACX-1vTBlGmOezNusSw2dRbZAT-ALjJXO0hMkSOlXBdfu76ZzkMIa2HIa62-29iL7yMNEhr-lqV6im8cKIqF/pub?output=csv')
+
+df['yearmonth'] = [(str(df['year'][x]) + format(df['month'][x], '02d')) for x in range(len(df))]
 
 ############ Seletores ######################
 col_date, col_prod = st.columns(2)
