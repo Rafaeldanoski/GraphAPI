@@ -6,7 +6,7 @@ import numpy as np
 from datetime import datetime, timedelta
 import time
 from google.oauth2 import service_account
-from googleapiclient.discovery import build 
+from googleapiclient.discovery import build
 
 
 # https://developers.facebook.com/tools/explorer?method=GET&path=act_3120164588217844%2Fadsets%3Ffields%3Dname%2Cstatus%2Cid%2C&version=v13.0
