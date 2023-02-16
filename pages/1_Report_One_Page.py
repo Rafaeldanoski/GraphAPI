@@ -147,7 +147,7 @@ step_prod = ['Etapa 3: Escala']
 
 df_ad_prod = df[(df['product'].isin([product]))
               & (df['impressions'] > 0)
-              & (pd.to_datetime(df['date_start'])>='2022-12-01')
+              & (pd.to_datetime(df['date_start'], errors='coerce')>='2022-12-01')
                ]
 df_ad_prod.reset_index(drop=True, inplace=True)
 
