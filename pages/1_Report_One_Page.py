@@ -38,8 +38,8 @@ with col_prod:
 st.markdown("<h1 style='text-align: center;'>ETAPA 1</h1>", unsafe_allow_html=True)
 
 df_filter = df[(df['product'].isin([product]))
-              & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
-              & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
+              & (pd.to_datetime(df['date_start'], errors='coerce')>=pd.to_datetime(start_date))
+              & (pd.to_datetime(df['date_start'], errors='coerce')<=pd.to_datetime(end_date))
               & (df['impressions'] > 0)
                ]            
 df_filter.reset_index(drop=True, inplace=True)
