@@ -74,8 +74,8 @@ with col_full_products:
 
 
 df_filter = df[(df['product'].isin(product))
-              & (pd.to_datetime(df['date_start'])>=pd.to_datetime(start_date))
-              & (pd.to_datetime(df['date_start'])<=pd.to_datetime(end_date))
+              & (pd.to_datetime(df['date_start'], errors='coerce')>=pd.to_datetime(start_date))
+              & (pd.to_datetime(df['date_start'], errors='coerce')<=pd.to_datetime(end_date))
               ]
 
 df_graph = df[(df['product'].isin(product))
