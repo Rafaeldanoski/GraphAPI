@@ -14,7 +14,7 @@ st.sidebar.success("Selecione uma página acima")
 st.markdown("<h1 style='text-align: center;'>REPORT PROCESSO DE TRÁFEGO</h1>", unsafe_allow_html=True)
 
 ############## DATASET #######################
-@st.cache_data(allow_output_mutation=True)
+@st.cache_data
 def load_data(url):
     return pd.read_csv(url)
 
