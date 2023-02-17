@@ -219,7 +219,7 @@ f = {'ctr':'{:.2f}',
      'link_clicks' :'{:.0f}'}
 df_view.format(f)
 
-st.write(df_view.to_html(escape=False, index=False), unsafe_allow_html=True, use_container_width=True)
+st.write(df_view.to_html(escape=False, index=False), unsafe_allow_html=True)
 
 ########################## Gráficos ######################
 col_violin, col_scatter = st.columns(2)
