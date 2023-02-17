@@ -242,7 +242,7 @@ class GraphAPI:
         df = df.fillna(0)
         df_ads = pd.DataFrame()
 
-        d = (datetime.today() - pd.to_datetime(df['date_start'].max(), errors='coerce')).days
+        d = (datetime.today() - pd.to_datetime(df['date_start'].max())).days
         if d >= 2:
             for i in range(d-1):
                 while True:
