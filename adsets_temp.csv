@@ -182,3 +182,25 @@ Semelhante de Purchase 90D + Envolvimento 180D,FRIO
 01 -  Site Asimov 30D | Env. 3D [AUTO],QUENTE
 05 -Engajamentos 180D [AUTO],QUENTE
 [QUA] PageView | Site Asimov | 10D | Story IG,QUENTE
+[DIP] PageView | 10D | Story IG,QUENTE
+[DIP] PageView | 10D | Feeds,QUENTE
+02 - [Etapa 1: Criativo] - Público de desenvolvedores,FRIO
+02 - [Etapa 1: Criativo] - Público Analista de Dados,FRIO
+04 - Engajamentos FB/IG 60D',QUENTE
+03 - Cadastrados 60D,QUENTE
+05 - Público de desenvolvedores  -  gasprices,FRIO
+01- Engajamentos FB/IG 3D,QUENTE
+05 -Público Analista de Dados - gasprices,FRIO
+02 - Viu página de vendas 60D + checkout 60D,QUENTE
+05 - Semelhantes a compradores 3%  - Mybudget,FRIO
+[QUA] PageView | 10D | Story IG,QUENTE
+01 - Salvou 7D + Direct 7D,QUENTE
+05 - Público de desenvolvedores  -  nycsales,FRIO
+05 -Público Analista de Dados - nycsales,FRIO
+05 - Semelhantes a compradores 3%  - nycsales,FRIO
+05 - Interesses em Programação  - nycsales,FRIO
+05 - Público de desenvolvedores  - Mybudget,FRIO
+05 - Semelhantes a compradores 3%  - gasprices,FRIO
+05 - Interesses em Programação  - gasprices,FRIO
+05 -Público Analista de Dados - Mybudget,FRIO
+05 - Interesses em Programação  - Mybudget,FRIO
