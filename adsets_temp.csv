@@ -204,3 +204,12 @@ Semelhante de Purchase 90D + Envolvimento 180D,FRIO
 05 - Interesses em Programação  - gasprices,FRIO
 05 -Público Analista de Dados - Mybudget,FRIO
 05 - Interesses em Programação  - Mybudget,FRIO
+03 - [QUANT] Engajamentos FB/IG 60D,QUENTE
+01 - [QUANT] Salvou 7D + Direct 7D,QUENTE
+01 - [QUANT] Engajamentos FB/IG 3D,QUENTE
+02 - [QUANT] Viu página de vendas 60D,QUENTE
+01 - [DIP] Engajamentos FB/IG 3D,QUENTE
+01 - [DIP] Salvou 7D + Direct 7D,QUENTE
+03 - [DIP] Cadastrados 60D,QUENTE
+02 - [DIP] Viu página de vendas 60D + checkout 60D,QUENTE
+04 - [DIP] Engajamentos FB/IG 60D,QUENTE
