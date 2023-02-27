@@ -90,7 +90,7 @@ def reset_month():
 with col_full_period:
     full_period = st.checkbox('Todo o período', key='full_period', on_change=reset_full_period)
     if full_period:
-        start_date, end_date = pd.to_datetime(df['date_start'].min(), errors='coerce'), pd.to_datetime(df['date_start'].max(), errors='coerce')
+        start_date, end_date = pd.to_datetime(df['date_start'].min()), pd.to_datetime(df['date_start'].max())
 
 with col_last7:
     last7 = st.checkbox('Últimos 7 dias', key='last7', on_change=reset_seven)
