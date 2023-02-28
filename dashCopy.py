@@ -146,7 +146,7 @@ with col_classify:
 with col_asc:
     asc = st.selectbox(
         '',
-        ('Ascendente', 'Descendente'))
+        ('Descendente', 'Ascendente'))
 
 if asc == 'Ascendente':
     ascending=True
