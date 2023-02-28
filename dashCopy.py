@@ -302,6 +302,20 @@ ctr_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue"))
 
 st.altair_chart(ctr_line.interactive(), use_container_width=True)
 
+df_graph
+st.write("""
+ CPC X Tempo
+""")
+
+cpc_line = alt.Chart(df_graph).mark_line(point=alt.OverlayMarkDef(color="blue")).encode(
+    x='date_start',
+    y='cpc_link_acc',
+    color='adset_name:N',
+    strokeDash='month'
+)
+
+st.altair_chart(cpc_line.interactive(), use_container_width=True)
+
 st.write("""
  Spend X Tempo
 """)
