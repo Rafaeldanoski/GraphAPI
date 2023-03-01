@@ -15,11 +15,12 @@ st.sidebar.success("Selecione uma página acima")
 st.markdown("<h1 style='text-align: center;'>DADOS GERAIS</h1>", unsafe_allow_html=True)
 
 ############## DATASET #######################
-@st.cache_data
+@st.experimental_memo
 def load_data(url):
     return pd.read_csv(url)
 
 df = load_data('https://docs.google.com/spreadsheets/d/e/2PACX-1vTBlGmOezNusSw2dRbZAT-ALjJXO0hMkSOlXBdfu76ZzkMIa2HIa62-29iL7yMNEhr-lqV6im8cKIqF/pub?output=csv')
+
 
 df['yearmonth'] = [(str(df['year'][x]) + format(df['month'][x], '02d')) for x in range(len(df))]
 
@@ -62,14 +63,11 @@ with col_last_month:
         start_date, end_date = datetime.today()-timedelta(30), datetime.today()
 
 
-def set_full_products():
-    st.session_state['multiselect_product'] = list(df['product'].unique())
-
 with col_prod:
-    product = st.multiselect("PRODUTO",(list(df['product'].unique())), default=['DIP'], key='multiselect_product')
+    product = st.multiselect("PRODUTO",(list(df['product'].unique())), default=['DIP'], key='product')
 
-with col_full_products:
-    full_prods = st.button('Todos os produtos', key='full_prod', on_click=set_full_products)
+if st.session_state['product']==[]:
+    product = df['product'].unique()
 
 
 

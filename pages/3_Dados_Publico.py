@@ -14,7 +14,7 @@ st.sidebar.success("Selecione uma página acima")
 st.markdown("<h1 style='text-align: center;'>DADOS DE PÚBLICO</h1>", unsafe_allow_html=True)
 
 ############## DATASET #######################
-@st.cache_data
+@st.experimental_memo
 def load_data(url):
     return pd.read_csv(url)
 

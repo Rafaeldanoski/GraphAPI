@@ -17,7 +17,7 @@ st.write("""
 """)
 
 ############## DATASET #######################
-@st.cache_data
+@st.experimental_memo
 def load_data(url):
     return pd.read_csv(url)
 
