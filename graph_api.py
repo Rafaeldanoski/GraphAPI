@@ -329,6 +329,15 @@ class GraphAPI:
                 except:
                     df4['purchase'] = 0
                     df4['purchase_roas'] = 0
+
+                #engagement
+                try:
+                    for n in range(len((df_ads['insights'][i])['data'][j]['actions'])):
+                        if df_ads['insights'][i]['data'][j]['actions'][n].get('action_type') == 'post_engagement':
+                            df4['engagement'] = int(df_ads['insights'][i]['data'][j]['actions'][n].get('value'))
+                            break
+                except:
+                    df4['engagement'] = 0
                 
                 #publics
                 for k in range(len(df_ads['targetingsentencelines'][i]['targetingsentencelines'])):
