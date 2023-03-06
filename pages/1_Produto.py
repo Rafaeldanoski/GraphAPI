@@ -88,11 +88,12 @@ df_filter = df_pre_filter[(df_pre_filter['adset_name'].isin(adset))
             ]
             
 
-agg_full = df_filter.groupby(['product','kind','adset_name']).agg({'date_start':'nunique', 'spend':'sum', 'purchase':'sum', 'impressions':'sum', 'link_clicks':'sum' , 
-                                                                   'reach':'sum', 'purchase_value':'sum'})
+agg_full = df_filter.groupby(['product','kind','adset_name']).agg({'date_start':'nunique', 'spend':'sum', 'purchase':'sum', 'impressions':'sum', 'engagement':'sum',
+                                                                   'link_clicks':'sum' , 'reach':'sum', 'purchase_value':'sum'})
 
 agg_full.rename(columns={'date_start':'dias'}, inplace=True)
-agg_full['frequency'] = agg_full['impressions'] / agg_full['reach']
+agg_full['custo/eng'] = agg_full['spend'] / agg_full['engagement']
+agg_full['frequencia'] = agg_full['impressions'] / agg_full['reach']
 agg_full['cpm'] = agg_full['spend'] / agg_full['impressions'] * 1000
 agg_full['ctr'] = agg_full['link_clicks'] / agg_full['impressions'] * 100
 agg_full['cpc'] = agg_full['spend'] / agg_full['link_clicks']
@@ -100,6 +101,7 @@ agg_full['cpc'] = agg_full['spend'] / agg_full['link_clicks']
 agg_full.replace([np.inf, -np.inf], 0, inplace=True)
 
 agg_full = agg_full.drop(['purchase_value','reach'], axis=1)
+agg_full = agg_full[['dias','spend','purchase','engagement','custo/eng','link_clicks','cpm','ctr','cpc','frequencia']]
 st.dataframe(agg_full)
 
 ############ Analítico ####################
@@ -121,11 +123,12 @@ else:
 
 
 
-agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','spend':'sum', 'purchase':'sum', 'impressions':'sum', 
+agg = df_filter.groupby('name').agg({'thumb_link':'last','insta_link':'last','date_start':'nunique','spend':'sum', 'purchase':'sum', 'engagement':'sum','impressions':'sum', 
                                      'link_clicks':'sum', 'reach':'sum', 'purchase_value':'sum'})
 
 agg.rename(columns={'date_start':'dias', 'insta_link':'Anúncio', 'thumb_link':''}, inplace=True)
-agg['frequency'] = agg['impressions'] / agg['reach']
+agg['custo/eng'] = agg['spend'] / agg['engagement']
+agg['frequencia'] = agg['impressions'] / agg['reach']
 agg['cpm'] = agg['spend'] / agg['impressions'] * 1000
 agg['ctr'] = agg['link_clicks'] / agg['impressions'] * 100
 agg['cpc'] = agg['spend'] / agg['link_clicks']
@@ -142,6 +145,7 @@ for i in range(len(agg)):
 
 agg.sort_values(by=classify, ascending=ascending, inplace=True)
 agg = agg.drop(['purchase_value', 'reach'], axis=1).round(2)
+agg = agg[['','Anúncio','dias','spend','purchase','engagement','custo/eng','link_clicks','cpm','ctr','cpc','frequencia']]
 
 def color_negative(v, color):
     return f"color: {color};" if v < 1 else None
@@ -165,6 +169,7 @@ f = {'ctr':'{:.2f}',
      'ctr_total':'{:.2f}',
      'cpm':'{:.2f}',
      'cpc':'{:.2f}',
+     'custo/eng':'{:.2f}',
      'cpc_total':'{:.2f}',
      'roas':'{:.2f}',
      'cpa':'{:.2f}',
