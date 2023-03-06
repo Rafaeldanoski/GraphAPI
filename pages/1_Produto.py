@@ -101,7 +101,7 @@ agg_full['cpc'] = agg_full['spend'] / agg_full['link_clicks']
 agg_full.replace([np.inf, -np.inf], 0, inplace=True)
 
 agg_full = agg_full.drop(['purchase_value','reach'], axis=1)
-agg_full = agg_full[['dias','spend','purchase','engagement','custo/eng','link_clicks','cpm','ctr','cpc','frequencia']]
+agg_full = agg_full[['dias','spend','purchase','engagement','custo/eng','impressions','link_clicks','cpm','ctr','cpc','frequencia']]
 st.dataframe(agg_full)
 
 ############ Analítico ####################
@@ -145,7 +145,7 @@ for i in range(len(agg)):
 
 agg.sort_values(by=classify, ascending=ascending, inplace=True)
 agg = agg.drop(['purchase_value', 'reach'], axis=1).round(2)
-agg = agg[['','Anúncio','dias','spend','purchase','engagement','custo/eng','link_clicks','cpm','ctr','cpc','frequencia']]
+agg = agg[['','Anúncio','dias','spend','purchase','engagement','custo/eng','impressions','link_clicks','cpm','ctr','cpc','frequencia']]
 
 def color_negative(v, color):
     return f"color: {color};" if v < 1 else None
