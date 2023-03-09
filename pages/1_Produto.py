@@ -109,7 +109,7 @@ col_classify, col_asc, col_empty2, col_empty3 = st.columns(4)
 with col_classify:
     classify = st.selectbox(
         'CLASSIFICADOR',
-        ('ctr',  'cpm', 'cpc', 'spend', 'link_clicks','impressions','purchase', 'frequencia', 'engagement'))
+        ('ctr',  'cpm', 'cpc', 'spend', 'link_clicks','impressions','purchase', 'frequencia', 'engagement', 'custo/eng'))
 
 with col_asc:
     asc = st.selectbox(
