@@ -109,7 +109,7 @@ col_classify, col_asc, col_empty2, col_empty3 = st.columns(4)
 with col_classify:
     classify = st.selectbox(
         'CLASSIFICADOR',
-        ('ctr',  'cpm', 'cpc', 'spend', 'link_clicks','impressions','purchase', 'frequencia'))
+        ('ctr',  'cpm', 'cpc', 'spend', 'link_clicks','impressions','purchase', 'frequencia', 'engagement'))
 
 with col_asc:
     asc = st.selectbox(
@@ -144,8 +144,8 @@ for i in range(len(agg)):
 
 
 agg.sort_values(by=classify, ascending=ascending, inplace=True)
-agg = agg.drop(['purchase_value', 'reach'], axis=1).round(2)
-agg = agg[['','Anúncio','dias','spend','purchase','engagement','custo/eng','impressions','link_clicks','cpm','ctr','cpc','frequencia']]
+agg = agg.drop(['purchase_value','reach'], axis=1).round(2)
+agg = agg[['','Anúncio','dias','spend','purchase','engagement','custo/eng','impressions', 'link_clicks','cpm','ctr','cpc','frequencia']]
 
 def color_negative(v, color):
     return f"color: {color};" if v < 1 else None
