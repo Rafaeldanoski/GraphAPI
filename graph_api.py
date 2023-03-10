@@ -368,7 +368,7 @@ class GraphAPI:
         df_ads_data_insights.drop(errors, inplace=True)
         df_ads_data_insights.reset_index(inplace=True, drop=True)
 
-        df_temperatura = pd.read_csv('adsets_temp.csv', sep=',')
+        df_temperatura = pd.read_csv('adsets_temp.csv', sep=';')
         df_ads_data_insights = pd.merge(df_ads_data_insights, df_temperatura, how='left',left_on=['adset_name'],right_on=['ADSET'])
 
         if len(df_ads_data_insights[df_ads_data_insights['TEMPERATURA'].isna()]['adset_name'].unique()) > 0:

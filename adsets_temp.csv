@@ -1,216 +1,218 @@
-ADSET,TEMPERATURA
-[ENGAJ] - Interesses em programação,FRIO
-[ENGAJ] - Semelhante 1% - Lista | Todos os alunos,FRIO
-[VV] [25%] - Interesses em Programação,FRIO
-[VV] [25%] - Semelhante 1% - Pixel - Purchase | Todos os Produtos,FRIO
-[VV] [75%] - Interesses em Programação,FRIO
-[VV] [75%] - Semelhante 1% - Pixel - Purchase | Todos os Produtos,FRIO
-[VV] Interesses em Programação,FRIO
-[VV] Semelhante 1% - Pixel - Purchase | Todos os Produtos,FRIO
-00 -  obrigado 30D | Lista Leads | PV 14D | Env. 14D [STORY],QUENTE
-00 - Captacao 14D | Lista Leads | Eng 7D [AUTO],QUENTE
-00 - Captacao14D | Lista Leads | Eng 7D [STORY],QUENTE
-00 - obrigado 30D | Lista Leads  [AUTO],QUENTE
-00 - publico quente 180D,QUENTE
-00 - publico quente 365D,QUENTE
-01 - Cadastrados pelo MyBudget,QUENTE
-01 - Checkout 30D + Envolvimento FB/IG - 3D  [AUTO],QUENTE
-01 - Engajamento FB e IG 60D,QUENTE
-01 - PageView | Trilha Dash | 180D,QUENTE
-01 - PageView | Trilha Machine Larning | 180D,QUENTE
-01 - PageView 180D [AUTO],MORNO
-01 - PageView 180D [STORY],MORNO
-01 - Viu captura 180D + Viu Asimov 30D,QUENTE
-02 - Cadastrados pelo MyBudget,QUENTE
-02 - Engajamento FB e IG 30D,QUENTE
-02 - Engajamento FB e IG 60D,QUENTE
-02 - Engajamentos 30D,QUENTE
-02 - Engajamentos 60D [AUTO],QUENTE
-02 - Engajamentos 60D [STORY],QUENTE
-02 - Interesses em Programação,FRIO
-02 - Semelhante a compradores 3%,FRIO
-02 - Semelhantes a compradores 3%,FRIO
-02 - Viu Pág. Vendas 30D + Envolvimento FB/IG - 14D  [AUTO],QUENTE
-02 - VV - 50% | Campanha descoberta ML | 60D,MORNO
-02 - VV DIP 60D - 25% relacionamento,MORNO
-03 - Engajamentos 365D [AUTO],MORNO
-03 - Engajamentos 365D [STORY],MORNO
-03 - Interesses em Programação,FRIO
-03 - Semelhantes a compradores 1%,FRIO
-03 - Vídeo view 60D,MORNO
-03 - VV - 25% | Videos com +5 min | 30D + VV - 50% | App Financeiro + Vendas | 60D,MORNO
-03 - VV DIP 60D - 25% relacionamento,MORNO
-03 - VV DIP 60D - 75% descoberta,MORNO
-04 - Engajamento FB e IG 60D,QUENTE
-04 - Interesses em Programação,FRIO
-04 - Interesses em Programação [AUTO],FRIO
-04 - Interesses em Programação [STORY],FRIO
-04 - LLK 1% cartão [AUTO],FRIO
-04 - LLK 1% cartão [STORY],FRIO
-04 - LLK 1% lista alunos [AUTO],FRIO
-04 - LLK 1% lista alunos [STORY],FRIO
-04 - LLK 1% obrigado [AUTO],FRIO
-04 - LLK 2% obrigado [STORY],FRIO
-04 - LLK 5% lista alunos [STORY],FRIO
-04 - LLK 5% purchase 180D [AUTO],FRIO
-"04 - Semelhante (BR, 1%) - Lista | Compradores cartão de crédito",FRIO
-"04 - Semelhante (BR, 1%) - Pixel - Purchase | Todos os Produtos | 90D",FRIO
-04 - Todos os mornos 365D (env. + VV + site),MORNO
-04 - VV DIP 60D - 75% descoberta,MORNO
-05 - Interesses em Programação,FRIO
-"05 - Semelhante (BR, 1%) - Lista | Compradores cartão de crédito",FRIO
-"05 - Semelhante (BR, 1%) - Pixel - Purchase | Todos os Produtos | 90D",FRIO
-05 - Semelhante a compradores 3%,FRIO
-05 - Semelhantes a compradores 1%,FRIO
-Engajamento FB e IG 30D,QUENTE
-Engajamento FB e IG 60D,QUENTE
-Interesses em Programação,FRIO
-PageView | Site Asimov | 10D | Feeds,QUENTE
-PageView | Site Asimov | 10D | Story IG,QUENTE
-PageView | Trilha Dash | 180D | Feeds,QUENTE
-PageView | Trilha Dash | 180D | Story IG,QUENTE
-Pixel - PageView | Trilha Dash | 30D,QUENTE
-Pixel - PageView | Trilha Dash | 30D + Engajamento FB e IG 30D,QUENTE
-Pixel - PageView | Trilha Dash | 60D + Engajamento FB e IG 60D,QUENTE
-"Semelhante (BR, 1%) - Lista | Compradores cartão de crédito",FRIO
-"Semelhante (BR, 1%) - Lista | Compradores DIP",FRIO
-"Semelhante (BR, 1%) - Pixel - Purchase | Todos os Produtos | 14D",FRIO
-"Semelhante (BR, 2%) - Lista | Compradores DIP",FRIO
-Semelhante 2% compradores,FRIO
-Semelhantes a compradores 1%,FRIO
-VV - 25% | Videos com +5 min | 30D + VV - 50% | App Financeiro + Vendas | 60D,MORNO
-VV - 50% | Campanha descoberta ML | 60D,MORNO
-Envolvimento FB + IG 180D,QUENTE
-Interesses em Programação (18 a 46),FRIO
-Interesses em Programação (20 a 48),FRIO
-Interesses em Programação  (22 a 50),FRIO
-Interesses Data Science e Machine Learning,FRIO
-Interesses em Programação 2,FRIO
-Interesses em Python,FRIO
-Engajamento FB + IG 90D,QUENTE
-Pixel - PageView | Trilha Dash | 14D + VV - 50% | App Financeiro + Vendas | 14D,QUENTE
-Pixel - PageView | Trilha Dash | 30D + VV - 50% | App Financeiro + Vendas | 30D,QUENTE
-Semelhante de Compra 90D,FRIO
-Semelhante Lista Compradores DIP,FRIO
-VV - 50% | App Financeiro + Vendas | 180D,MORNO
-Semelhante de Compra 14D,FRIO
-Visitantes FB + IG 180D,QUENTE
-Visitantes FB + IG 180D + Pixel - PageView | Site Asimov | 180D,QUENTE
-Pixel - PageView | Site Asimov | 180D,QUENTE
-Pixel - PageView | Trilha Dash | 180D,QUENTE
-Pixel - PageView | Trilha Dash | 14D,QUENTE
-Pixel - Checkout | Todos os Produtos | 180D,QUENTE
-VV - 50% | Três Cursos + Cinco Projetos | 180D + VV - 50% | App Financeiro + Vendas | 180D,MORNO
-Semelhante de Compra 180D,FRIO
-Semelhante de Envolvimento 180D,FRIO
-VV - ThruPlay | Conversão/Remarketing DIP | 180D,MORNO
-Semelhante de Compra 90D + Envolvimento 180D,FRIO
-Engajamento FB + IG 21D,QUENTE
-Pixel - PageView | Trilha Dash | 30D + Pixel - Assinar | Clicou em assinar DIP | 30D,QUENTE
-PageView - Trilha Dash 14D,QUENTE
-Semelhante de Purchase 90D + Envolvimento 180D,FRIO
-02 - Interesses em Programação [purchase],FRIO
-02 - Interesses em Programação [checkout],FRIO
-02 - Interesses: Iniciantes em programação [20-40] [H+],FRIO
-02 - Interesses: Analistas [20-40] [H+],FRIO
-02 - Interesses: Data Science BI [20-45] [H+] - Errado!,FRIO
-02 - Interesses: Usuários de Excel/Power BI [20-40] [H+],FRIO
-02 - Interesses: Data Science BI [20-40] [H+] - Correto,FRIO
-02 - Interesses: Usuários de Excel/Power BI [20-45] [H+],FRIO
-02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%,FRIO
-45_Dashboardnyc,FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 06 (python  [18-25]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 01 (excel [25-45] mulheres),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 02 (excel [25-45] homens),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 02 (excel [18-25]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 05 (python -  homens),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 04 (python - mulheres),FRIO
-02 -  [Etapa 1: Teste de criativo] - Interesses em trader,FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 06 (base data science - mulheres),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 05 (base data science - homens),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 04 (python - [35-45]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 02 (data science - [35-45]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 03 (python - [25-35]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 01 (data science - [25-35]),FRIO
-02 - [Etapa 3: Escala] - Interesse 05 (python -  homens),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 01 (python  [18-25] [sem faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 04 (python  [18-25] [com faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 02 (python  [25-35] [sem faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 06 (python  [35-45] [com faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 05 (python  [25-35] [com faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 03 (python  [35-45] [sem faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 06 (python  [36-45] [com faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 05 (python  [26-35] [com faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 02 (python  [26-35] [sem faculdade]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 03 (python  [36-45] [sem faculdade]),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 03 (trading [36-45] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 02 (trading [26-35] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 05 (investimento [26-35] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 01 (trading [18-25] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 04 (investimento [18-25] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 06 (investimento [36-45] H),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 04 (python - [36-45]),FRIO
-02 - [Etapa 2: Teste de publico] - Interesse 02 (data science - [36-45]),FRIO
-[QUA] PageView | Site Asimov | 10D | Auto,QUENTE
-[DIP] PageView | Site Asimov | 10D | Feeds,QUENTE
-[DIP] PageView | Site Asimov | 10D | Story IG,QUENTE
-02 -  [Etapa 3: Escala] - Interesse 01 (trading [18-25] H),FRIO
-[AT] PageView | Site Asimov | 10D | Auto,QUENTE
-02 -  [Etapa 2: Teste de publico] - Interesse 06 (programação [26-35] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 03 (exatas [18-25] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 05 (programação [18-25] H),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse 04 (exatas [26-35] H),FRIO
-02 - [Etapa 1: Criativo] - Semelhantes a compradores 3%,FRIO
-02 - [Etapa 3: Escala] - Interesse 02 (python  [26-35] [sem faculdade]),FRIO
-02 - [Etapa 2: Público] - Interesse 01 (python  [18-25] [sem faculdade]),FRIO
-02 - [Etapa 2: Público] - Interesse 05 (python  [26-35] [com faculdade]),FRIO
-02 - [Etapa 2: Público] - Interesse 04 (python  [18-25] [com faculdade]),FRIO
-02 - [Etapa 2: Público] - Interesse 02 (python  [26-35] [sem faculdade]),FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse [trading + investimentos E programação],FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse [trading + investimentos E faculdade],FRIO
-02 -  [Etapa 2: Teste de publico] - Interesse [trading + investimentos E exatas],FRIO
-02 - [Etapa 3: Escala] - Interesse 04 (python  [18-25] [com faculdade]),FRIO
-05 -Público Analista de Dados,FRIO
-05 - Público de desenvolvedores,FRIO
-02 -  [Etapa 1] - Público de Profissionais do Mercado Financeiro,FRIO
-02 - [Etapa 1] - Público de desenvolvedores,FRIO
-02 - [Etapa 1] - Público Analista de Dados,FRIO
-02 - Engajamentos 60D + Direct IG 180D [AUTO],QUENTE
-05 -Engajamentos 180D [AUTO]' '01 -  Site Asimov 30D | Env. 3D [AUTO],QUENTE
-03 - Video View 90D + Salvou IG 180D [AUTO],QUENTE
-04 - Site Asimov 180D [AUTO],QUENTE
-01 -  Site Asimov 30D | Env. 3D [AUTO],QUENTE
-05 -Engajamentos 180D [AUTO],QUENTE
-[QUA] PageView | Site Asimov | 10D | Story IG,QUENTE
-[DIP] PageView | 10D | Story IG,QUENTE
-[DIP] PageView | 10D | Feeds,QUENTE
-02 - [Etapa 1: Criativo] - Público de desenvolvedores,FRIO
-02 - [Etapa 1: Criativo] - Público Analista de Dados,FRIO
-04 - Engajamentos FB/IG 60D',QUENTE
-03 - Cadastrados 60D,QUENTE
-05 - Público de desenvolvedores  -  gasprices,FRIO
-01- Engajamentos FB/IG 3D,QUENTE
-05 -Público Analista de Dados - gasprices,FRIO
-02 - Viu página de vendas 60D + checkout 60D,QUENTE
-05 - Semelhantes a compradores 3%  - Mybudget,FRIO
-[QUA] PageView | 10D | Story IG,QUENTE
-01 - Salvou 7D + Direct 7D,QUENTE
-05 - Público de desenvolvedores  -  nycsales,FRIO
-05 -Público Analista de Dados - nycsales,FRIO
-05 - Semelhantes a compradores 3%  - nycsales,FRIO
-05 - Interesses em Programação  - nycsales,FRIO
-05 - Público de desenvolvedores  - Mybudget,FRIO
-05 - Semelhantes a compradores 3%  - gasprices,FRIO
-05 - Interesses em Programação  - gasprices,FRIO
-05 -Público Analista de Dados - Mybudget,FRIO
-05 - Interesses em Programação  - Mybudget,FRIO
-03 - [QUANT] Engajamentos FB/IG 60D,QUENTE
-01 - [QUANT] Salvou 7D + Direct 7D,QUENTE
-01 - [QUANT] Engajamentos FB/IG 3D,QUENTE
-02 - [QUANT] Viu página de vendas 60D,QUENTE
-01 - [DIP] Engajamentos FB/IG 3D,QUENTE
-01 - [DIP] Salvou 7D + Direct 7D,QUENTE
-03 - [DIP] Cadastrados 60D,QUENTE
-02 - [DIP] Viu página de vendas 60D + checkout 60D,QUENTE
-04 - [DIP] Engajamentos FB/IG 60D,QUENTE
-02 - Semelhante (BR, 5%) - Pixel - Purchase | Todos os Produtos | 180D,FRIO
+ADSET;TEMPERATURA
+[ENGAJ] - Interesses em programação;FRIO
+[ENGAJ] - Semelhante 1% - Lista | Todos os alunos;FRIO
+[VV] [25%] - Interesses em Programação;FRIO
+[VV] [25%] - Semelhante 1% - Pixel - Purchase | Todos os Produtos;FRIO
+[VV] [75%] - Interesses em Programação;FRIO
+[VV] [75%] - Semelhante 1% - Pixel - Purchase | Todos os Produtos;FRIO
+[VV] Interesses em Programação;FRIO
+[VV] Semelhante 1% - Pixel - Purchase | Todos os Produtos;FRIO
+00 -  obrigado 30D | Lista Leads | PV 14D | Env. 14D [STORY];QUENTE
+00 - Captacao 14D | Lista Leads | Eng 7D [AUTO];QUENTE
+00 - Captacao14D | Lista Leads | Eng 7D [STORY];QUENTE
+00 - obrigado 30D | Lista Leads  [AUTO];QUENTE
+00 - publico quente 180D;QUENTE
+00 - publico quente 365D;QUENTE
+01 - Cadastrados pelo MyBudget;QUENTE
+01 - Checkout 30D + Envolvimento FB/IG - 3D  [AUTO];QUENTE
+01 - Engajamento FB e IG 60D;QUENTE
+01 - PageView | Trilha Dash | 180D;QUENTE
+01 - PageView | Trilha Machine Larning | 180D;QUENTE
+01 - PageView 180D [AUTO];MORNO
+01 - PageView 180D [STORY];MORNO
+01 - Viu captura 180D + Viu Asimov 30D;QUENTE
+02 - Cadastrados pelo MyBudget;QUENTE
+02 - Engajamento FB e IG 30D;QUENTE
+02 - Engajamento FB e IG 60D;QUENTE
+02 - Engajamentos 30D;QUENTE
+02 - Engajamentos 60D [AUTO];QUENTE
+02 - Engajamentos 60D [STORY];QUENTE
+02 - Interesses em Programação;FRIO
+02 - Semelhante a compradores 3%;FRIO
+02 - Semelhantes a compradores 3%;FRIO
+02 - Viu Pág. Vendas 30D + Envolvimento FB/IG - 14D  [AUTO];QUENTE
+02 - VV - 50% | Campanha descoberta ML | 60D;MORNO
+02 - VV DIP 60D - 25% relacionamento;MORNO
+03 - Engajamentos 365D [AUTO];MORNO
+03 - Engajamentos 365D [STORY];MORNO
+03 - Interesses em Programação;FRIO
+03 - Semelhantes a compradores 1%;FRIO
+03 - Vídeo view 60D;MORNO
+03 - VV - 25% | Videos com +5 min | 30D + VV - 50% | App Financeiro + Vendas | 60D;MORNO
+03 - VV DIP 60D - 25% relacionamento;MORNO
+03 - VV DIP 60D - 75% descoberta;MORNO
+04 - Engajamento FB e IG 60D;QUENTE
+04 - Interesses em Programação;FRIO
+04 - Interesses em Programação [AUTO];FRIO
+04 - Interesses em Programação [STORY];FRIO
+04 - LLK 1% cartão [AUTO];FRIO
+04 - LLK 1% cartão [STORY];FRIO
+04 - LLK 1% lista alunos [AUTO];FRIO
+04 - LLK 1% lista alunos [STORY];FRIO
+04 - LLK 1% obrigado [AUTO];FRIO
+04 - LLK 2% obrigado [STORY];FRIO
+04 - LLK 5% lista alunos [STORY];FRIO
+04 - LLK 5% purchase 180D [AUTO];FRIO
+"04 - Semelhante (BR; 1%) - Lista | Compradores cartão de crédito";FRIO
+"04 - Semelhante (BR; 1%) - Pixel - Purchase | Todos os Produtos | 90D";FRIO
+04 - Todos os mornos 365D (env. + VV + site);MORNO
+04 - VV DIP 60D - 75% descoberta;MORNO
+05 - Interesses em Programação;FRIO
+"05 - Semelhante (BR; 1%) - Lista | Compradores cartão de crédito";FRIO
+"05 - Semelhante (BR; 1%) - Pixel - Purchase | Todos os Produtos | 90D";FRIO
+05 - Semelhante a compradores 3%;FRIO
+05 - Semelhantes a compradores 1%;FRIO
+Engajamento FB e IG 30D;QUENTE
+Engajamento FB e IG 60D;QUENTE
+Interesses em Programação;FRIO
+PageView | Site Asimov | 10D | Feeds;QUENTE
+PageView | Site Asimov | 10D | Story IG;QUENTE
+PageView | Trilha Dash | 180D | Feeds;QUENTE
+PageView | Trilha Dash | 180D | Story IG;QUENTE
+Pixel - PageView | Trilha Dash | 30D;QUENTE
+Pixel - PageView | Trilha Dash | 30D + Engajamento FB e IG 30D;QUENTE
+Pixel - PageView | Trilha Dash | 60D + Engajamento FB e IG 60D;QUENTE
+"Semelhante (BR; 1%) - Lista | Compradores cartão de crédito";FRIO
+"Semelhante (BR; 1%) - Lista | Compradores DIP";FRIO
+"Semelhante (BR; 1%) - Pixel - Purchase | Todos os Produtos | 14D";FRIO
+"Semelhante (BR; 2%) - Lista | Compradores DIP";FRIO
+Semelhante 2% compradores;FRIO
+Semelhantes a compradores 1%;FRIO
+VV - 25% | Videos com +5 min | 30D + VV - 50% | App Financeiro + Vendas | 60D;MORNO
+VV - 50% | Campanha descoberta ML | 60D;MORNO
+Envolvimento FB + IG 180D;QUENTE
+Interesses em Programação (18 a 46);FRIO
+Interesses em Programação (20 a 48);FRIO
+Interesses em Programação  (22 a 50);FRIO
+Interesses Data Science e Machine Learning;FRIO
+Interesses em Programação 2;FRIO
+Interesses em Python;FRIO
+Engajamento FB + IG 90D;QUENTE
+Pixel - PageView | Trilha Dash | 14D + VV - 50% | App Financeiro + Vendas | 14D;QUENTE
+Pixel - PageView | Trilha Dash | 30D + VV - 50% | App Financeiro + Vendas | 30D;QUENTE
+Semelhante de Compra 90D;FRIO
+Semelhante Lista Compradores DIP;FRIO
+VV - 50% | App Financeiro + Vendas | 180D;MORNO
+Semelhante de Compra 14D;FRIO
+Visitantes FB + IG 180D;QUENTE
+Visitantes FB + IG 180D + Pixel - PageView | Site Asimov | 180D;QUENTE
+Pixel - PageView | Site Asimov | 180D;QUENTE
+Pixel - PageView | Trilha Dash | 180D;QUENTE
+Pixel - PageView | Trilha Dash | 14D;QUENTE
+Pixel - Checkout | Todos os Produtos | 180D;QUENTE
+VV - 50% | Três Cursos + Cinco Projetos | 180D + VV - 50% | App Financeiro + Vendas | 180D;MORNO
+Semelhante de Compra 180D;FRIO
+Semelhante de Envolvimento 180D;FRIO
+VV - ThruPlay | Conversão/Remarketing DIP | 180D;MORNO
+Semelhante de Compra 90D + Envolvimento 180D;FRIO
+Engajamento FB + IG 21D;QUENTE
+Pixel - PageView | Trilha Dash | 30D + Pixel - Assinar | Clicou em assinar DIP | 30D;QUENTE
+PageView - Trilha Dash 14D;QUENTE
+Semelhante de Purchase 90D + Envolvimento 180D;FRIO
+02 - Interesses em Programação [purchase];FRIO
+02 - Interesses em Programação [checkout];FRIO
+02 - Interesses: Iniciantes em programação [20-40] [H+];FRIO
+02 - Interesses: Analistas [20-40] [H+];FRIO
+02 - Interesses: Data Science BI [20-45] [H+] - Errado!;FRIO
+02 - Interesses: Usuários de Excel/Power BI [20-40] [H+];FRIO
+02 - Interesses: Data Science BI [20-40] [H+] - Correto;FRIO
+02 - Interesses: Usuários de Excel/Power BI [20-45] [H+];FRIO
+02 - [Etapa 1: Teste de criativo] - Semelhantes a compradores 3%;FRIO
+45_Dashboardnyc;FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 06 (python  [18-25]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 01 (excel [25-45] mulheres);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 02 (excel [25-45] homens);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 02 (excel [18-25]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 05 (python -  homens);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 04 (python - mulheres);FRIO
+02 -  [Etapa 1: Teste de criativo] - Interesses em trader;FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 06 (base data science - mulheres);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 05 (base data science - homens);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 04 (python - [35-45]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 02 (data science - [35-45]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 03 (python - [25-35]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 01 (data science - [25-35]);FRIO
+02 - [Etapa 3: Escala] - Interesse 05 (python -  homens);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 01 (python  [18-25] [sem faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 04 (python  [18-25] [com faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 02 (python  [25-35] [sem faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 06 (python  [35-45] [com faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 05 (python  [25-35] [com faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 03 (python  [35-45] [sem faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 06 (python  [36-45] [com faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 05 (python  [26-35] [com faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 02 (python  [26-35] [sem faculdade]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 03 (python  [36-45] [sem faculdade]);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 03 (trading [36-45] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 02 (trading [26-35] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 05 (investimento [26-35] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 01 (trading [18-25] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 04 (investimento [18-25] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 06 (investimento [36-45] H);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 04 (python - [36-45]);FRIO
+02 - [Etapa 2: Teste de publico] - Interesse 02 (data science - [36-45]);FRIO
+[QUA] PageView | Site Asimov | 10D | Auto;QUENTE
+[DIP] PageView | Site Asimov | 10D | Feeds;QUENTE
+[DIP] PageView | Site Asimov | 10D | Story IG;QUENTE
+02 -  [Etapa 3: Escala] - Interesse 01 (trading [18-25] H);FRIO
+[AT] PageView | Site Asimov | 10D | Auto;QUENTE
+02 -  [Etapa 2: Teste de publico] - Interesse 06 (programação [26-35] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 03 (exatas [18-25] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 05 (programação [18-25] H);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse 04 (exatas [26-35] H);FRIO
+02 - [Etapa 1: Criativo] - Semelhantes a compradores 3%;FRIO
+02 - [Etapa 3: Escala] - Interesse 02 (python  [26-35] [sem faculdade]);FRIO
+02 - [Etapa 2: Público] - Interesse 01 (python  [18-25] [sem faculdade]);FRIO
+02 - [Etapa 2: Público] - Interesse 05 (python  [26-35] [com faculdade]);FRIO
+02 - [Etapa 2: Público] - Interesse 04 (python  [18-25] [com faculdade]);FRIO
+02 - [Etapa 2: Público] - Interesse 02 (python  [26-35] [sem faculdade]);FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse [trading + investimentos E programação];FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse [trading + investimentos E faculdade];FRIO
+02 -  [Etapa 2: Teste de publico] - Interesse [trading + investimentos E exatas];FRIO
+02 - [Etapa 3: Escala] - Interesse 04 (python  [18-25] [com faculdade]);FRIO
+05 -Público Analista de Dados;FRIO
+05 - Público de desenvolvedores;FRIO
+02 -  [Etapa 1] - Público de Profissionais do Mercado Financeiro;FRIO
+02 - [Etapa 1] - Público de desenvolvedores;FRIO
+02 - [Etapa 1] - Público Analista de Dados;FRIO
+02 - Engajamentos 60D + Direct IG 180D [AUTO];QUENTE
+05 -Engajamentos 180D [AUTO]' '01 -  Site Asimov 30D | Env. 3D [AUTO];QUENTE
+03 - Video View 90D + Salvou IG 180D [AUTO];QUENTE
+04 - Site Asimov 180D [AUTO];QUENTE
+01 -  Site Asimov 30D | Env. 3D [AUTO];QUENTE
+05 -Engajamentos 180D [AUTO];QUENTE
+[QUA] PageView | Site Asimov | 10D | Story IG;QUENTE
+[DIP] PageView | 10D | Story IG;QUENTE
+[DIP] PageView | 10D | Feeds;QUENTE
+02 - [Etapa 1: Criativo] - Público de desenvolvedores;FRIO
+02 - [Etapa 1: Criativo] - Público Analista de Dados;FRIO
+04 - Engajamentos FB/IG 60D';QUENTE
+03 - Cadastrados 60D;QUENTE
+05 - Público de desenvolvedores  -  gasprices;FRIO
+01- Engajamentos FB/IG 3D;QUENTE
+05 -Público Analista de Dados - gasprices;FRIO
+02 - Viu página de vendas 60D + checkout 60D;QUENTE
+05 - Semelhantes a compradores 3%  - Mybudget;FRIO
+[QUA] PageView | 10D | Story IG;QUENTE
+01 - Salvou 7D + Direct 7D;QUENTE
+05 - Público de desenvolvedores  -  nycsales;FRIO
+05 -Público Analista de Dados - nycsales;FRIO
+05 - Semelhantes a compradores 3%  - nycsales;FRIO
+05 - Interesses em Programação  - nycsales;FRIO
+05 - Público de desenvolvedores  - Mybudget;FRIO
+05 - Semelhantes a compradores 3%  - gasprices;FRIO
+05 - Interesses em Programação  - gasprices;FRIO
+05 -Público Analista de Dados - Mybudget;FRIO
+05 - Interesses em Programação  - Mybudget;FRIO
+03 - [QUANT] Engajamentos FB/IG 60D;QUENTE
+01 - [QUANT] Salvou 7D + Direct 7D;QUENTE
+01 - [QUANT] Engajamentos FB/IG 3D;QUENTE
+02 - [QUANT] Viu página de vendas 60D;QUENTE
+01 - [DIP] Engajamentos FB/IG 3D;QUENTE
+01 - [DIP] Salvou 7D + Direct 7D;QUENTE
+03 - [DIP] Cadastrados 60D;QUENTE
+02 - [DIP] Viu página de vendas 60D + checkout 60D;QUENTE
+04 - [DIP] Engajamentos FB/IG 60D;QUENTE
+02 - Semelhante (BR, 5%) - Pixel - Purchase | Todos os Produtos | 180D;FRIO
+02 -  [Etapa 1] - Semelhante (BR, 1% to 2%) - Lista | Compradores cartão de crédito;FRIO
+02 -  [Etapa 1] - Semelhante (BR, 1%) - Pixel - PageView | Trilha Trading Quant | 60D;FRIO
