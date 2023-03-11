@@ -216,3 +216,7 @@ Semelhante de Purchase 90D + Envolvimento 180D;FRIO
 02 - Semelhante (BR, 5%) - Pixel - Purchase | Todos os Produtos | 180D;FRIO
 02 -  [Etapa 1] - Semelhante (BR, 1% to 2%) - Lista | Compradores cartão de crédito;FRIO
 02 -  [Etapa 1] - Semelhante (BR, 1%) - Pixel - PageView | Trilha Trading Quant | 60D;FRIO
+00 - Aberto [VideoView] QUANT,FRIO
+00 - Aberto [Engajamento] QUANT,FRIO
+00 - Aberto [VideoView] DIP,FRIO
+00 - Aberto [Engajamento] DIP,FRIO
