@@ -22,7 +22,14 @@ def load_data(url):
 df = load_data('https://docs.google.com/spreadsheets/d/e/2PACX-1vTBlGmOezNusSw2dRbZAT-ALjJXO0hMkSOlXBdfu76ZzkMIa2HIa62-29iL7yMNEhr-lqV6im8cKIqF/pub?output=csv')
 
 ############ Seletores ######################
-col_date, col_prod, col_adset, col_ad = st.columns(4)
+col_date, col_kind, col_prod, col_adset, col_ad = st.columns(5)
+
+with col_kind:
+   kind = st.multiselect("TIPO",(list(df['kind'].unique())), key='kind')
+if st.session_state['kind']==[]:
+    kind = df['kind'].unique()
+if st.session_state['kind']==['REMARKETING']:
+    kind = ['QUA', 'REMARKETING']
 
 with col_prod:
    product = st.multiselect("PRODUTO",(list(df['product'].unique())), key='product')
@@ -67,6 +74,7 @@ with col_last_month:
 df_pre_filter = df[(df['product'].isin(product)) 
                 & (pd.to_datetime(df['date_start'], errors='coerce')>=pd.to_datetime(start_date))
                 & (pd.to_datetime(df['date_start'], errors='coerce')<=pd.to_datetime(end_date))
+                & (df['kind'].isin(kind))
                 ]
 
 
