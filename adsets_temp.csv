@@ -222,3 +222,47 @@ Semelhante de Purchase 90D + Envolvimento 180D;FRIO
 00 - Aberto [Engajamento] DIP;FRIO
 02 -  [Etapa 1] - Semelhante (BR, 3%) - Pixel - Purchase | Todos os Produtos | 90D;FRIO
 02 - [Etapa 1: Criativo] - Público Analista de Dados (sem exclusão, sem inclusão de comportamento);FRIO
+PageView | ThruPlay | 60D | 67_OPRS_Nyc;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 67_OPRS_Nyc;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 66_OPRS_Sales;QUENTE
+[DIP] PageView | 10D | AUTO - 48_exceldashboard;QUENTE
+[DIP] PageView | 10D | Story - 34_dashboard_faceads_STORIES;QUENTE
+[DIP] PageView | 10D | Story IG - 29_vv100_Python_STORY_NOVO;QUENTE
+PageView | ThruPlay | 60D | 69_Projetos_DIP_06_HEADING_PT3_REELS;QUENTE
+[DIP] PageView | 10D | Story IG - 25_questionario_sistemas_STORY_NOVO;QUENTE
+PageView | ThruPlay | 60D | 25_questionario_sistemas;QUENTE
+PageView | ThruPlay | 60D |  23_OPRS_Quant_para_qualquer_mercado;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D |  23_OPRS_Quant_para_qualquer_mercado;QUENTE
+PageView | ThruPlay | 60D | 22_OPRS_Indicacao_de_livros;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 22_OPRS_Indicacao_de_livros;QUENTE
+PageView | ThruPlay | 60D | 21_OPRS_Quant_sem_matematica;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 25_questionario_sistemas;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 70_Apresentação_DIP;QUENTE
+PageView | ThruPlay | 60D | 70_Apresentação_DIP;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 71_OPRS_DIP_My_Budget;QUENTE
+02 - Público Analista de Dados (sem exclusão, sem inclusão de comportamento);FRIO
+[DIP] PageView | 10D | Feeds - Porque_aprender_python (estático);QUENTE
+[DIP] PageView | 10D | Story IG - Porque_aprender_python (estático);QUENTE
+[QUA] PageView | 10D | Auto - Criativo Prontidão_1;QUENTE
+PageView | ThruPlay | 60D | 74_OPRS_DIP_Associates;QUENTE
+PageView | ThruPlay | 60D | 73_OPRS_DIP_Gas_Prices;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 73_OPRS_DIP_Gas_Prices;QUENTE
+PageView | ThruPlay | 60D | 72_OPRS_DIP_Covid;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 72_OPRS_DIP_Covid;QUENTE
+PageView | ThruPlay | 60D | 71_OPRS_DIP_My_Budget;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 21_OPRS_Quant_sem_matematica;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 20_OPRS_Comecar_no_Quant;QUENTE
+PageView | ThruPlay | 60D | 19_MagnetAds_3_REELS;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 19_MagnetAds_3_REELS;QUENTE
+PageView | ThruPlay | 60D | 18_MagnetAds_2_REELS;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 18_MagnetAds_2_REELS;QUENTE
+PageView | ThruPlay | 60D | 17_MagnetAds_1;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 17_MagnetAds_1;QUENTE
+PageView | ThruPlay | 60D | 16_remarketing_conteúdos;QUENTE
+[PAUSADO] [QUA] PageView | 10D | Auto - 16_remarketing_conteúdos;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 16_remarketing_conteúdos;QUENTE
+[QUA] PageView | 10D | Auto - 15_remarketing_vitalício2;QUENTE
+[PAUSADO] [QUA] PageView | 10D | Auto - 14_remarketing_vitalício;QUENTE
+[PAUSADO] PageView | ThruPlay | 60D | 13_criativo_prontidão;QUENTE
+PageView | ThruPlay | 60D | 13_criativo_prontidão;QUENTE
+PageView | ThruPlay | 60D | 20_OPRS_Comecar_no_Quant;QUENTE
