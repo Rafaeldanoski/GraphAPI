@@ -314,3 +314,9 @@ PageView | 25% | 60D | 13_criativo_prontidão;QUENTE
 [PAUSADO 2] PageView | ThruPlay | 60D | 71_OPRS_DIP_My_Budget;QUENTE
 02 - Público de desenvolvedores (sem formação);FRIO
 02 -  Semelhante (BR, 1%) - Pixel - BlackFriday | Obrigado | 30D;QUENTE
+02 Semelhante (BR, 3%) - Pixel - Purchase | Todos os Produtos | 90D;QUENTE
+[QUA] PageView | 10D | Auto;QUENTE
+PageView | 25% | 60D | 26_Backtesting;QUENTE
+[DIP] PageView | 10D | Story;QUENTE
+[DIP] PageView | 10D | Auto;QUENTE
+PageView | 25% | 60D | 24_OPRS_Oferta;QUENTE
